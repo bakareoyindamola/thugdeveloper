@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from './globalStyles';
+import { lightTheme, darkTheme } from "./constant/themes";
+import { useDarkMode } from "./hooks/useDarkMode";
+import { Homepage, WorksPage, WorkDetails } from './pages';
+import TopNavigationContainer from "./containers/topNavigation";
+import { Routes } from "./constant/routes";
 
 function App() {
+  const [theme, themeSwitch] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles />
+        <TopNavigationContainer themeSwitch={themeSwitch} />
+        <Switch>
+          <Route exact path={Routes.HOME}  component={ Homepage } />
+          <Route exact path={Routes.WORKS}  component={ WorksPage } />
+          <Route exact path={Routes.WORK_DETAILS}  component={ WorkDetails } />
+        </Switch>
+    </ThemeProvider>
   );
 }
 

@@ -14,10 +14,16 @@ import {
   BackdropContainer
 } from "./containers";
 import { Routes } from "./constant/routes";
+import { Transition } from "react-transition-group";
 
 function App() {
   const [theme, themeSwitch] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
+  const routes = [
+    {path: Routes.HOME, name: 'Home', Component: Homepage},
+    {path: Routes.WORKS, name: 'WorksPage', Component: WorksPage},
+    {path: Routes.WORK_DETAILS, name: 'WorkDetails', Component: WorkDetails},
+  ];
 
   return (
     <ThemeProvider theme={themeMode}>
@@ -27,9 +33,22 @@ function App() {
           <ContactModalContainer />
         </BackdropContainer>
         <Switch>
-          <Route exact path={Routes.HOME}  component={ Homepage } />
-          <Route exact path={Routes.WORKS}  component={ WorksPage } />
-          <Route exact path={Routes.WORK_DETAILS}  component={ WorkDetails } />
+          {routes.map(({path, name, Component}) => (
+            <Route key={name} path={path} exact>
+              {({ match }) => (
+                  <Transition
+                    in={match != null}
+                    timeout={300}
+                    className={"page"}
+                    unmountOnExit
+                  >
+                    <div className="page">
+                      <Component />
+                    </div>
+                  </Transition>
+              )}
+            </Route>
+          ))}
         </Switch>
     </ThemeProvider>
   );

@@ -54,13 +54,15 @@ export const ProjectDetails = styled.p`
 
 export const Pane = styled.div`
   display: flex;
+  max-width: 400px;
+  flex-wrap: wrap;
 `;
 
 export const SkillWrapper = styled.div`
   padding: .5rem 1rem;
   border-radius: 10px;
   border: 1px solid #F2F2F2;
-  margin-right: 1rem;
+  margin: 0 1rem 1rem 0;
   &:last-of-type {
     margin-right: 0;
   }

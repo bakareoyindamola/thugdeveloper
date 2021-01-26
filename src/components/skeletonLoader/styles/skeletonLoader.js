@@ -27,6 +27,8 @@ export const Inner = styled.div`
 `;
 
 export const Pane = styled.div`
+  position: relative;
+  overflow: hidden;
   &.text-wrapper {
     max-width: 460px;
     width: 100%;
@@ -53,6 +55,8 @@ export const Pane = styled.div`
 `;
 
 export const Element = styled.div`
+  position: relative;
+  overflow: hidden;
   &.name {
     height: 37px;
     width: 50%;
@@ -90,7 +94,7 @@ export const AnimationWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  animation: loading 2.5s infinite;
+  animation: loading 1.5s infinite;
 
   @keyframes loading {
     0% {
@@ -108,8 +112,7 @@ export const AnimationWrapper = styled.div`
 export const Animation = styled.div`
   width: 50%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.2);
-  //background-color: ${({ theme }) => theme.card };
+  background-image: linear-gradient(90deg, rgba(255,255,255, 0), rgba(255,255,255, 0.6), rgba(255,255,255, 0));
   box-shadow: 0 0 30px 30px rgba(225, 225, 225, 0.05);
   transform: skewX(-20deg);
 `;

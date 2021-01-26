@@ -54,4 +54,18 @@ export const GlobalStyles = createGlobalStyle`
   li {
     list-style-type: none;
   }
+  .page-enter {
+    opacity: 1;
+  }
+  .page-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+  }
+  .page-exit{
+    opacity: 1;
+  }
+  .page-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out
+  }
 `;

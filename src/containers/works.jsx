@@ -1,13 +1,16 @@
 import { Layout } from "../components";
 import { WorkIntro } from "../components";
 import GithubContainer from "./github";
-import WorkSkeleton from "./workSkeleton";
 import SocialContainer from "./social";
 import InspiredContainer from "./inspired";
 import FooterContainer from "./footer";
 import WorkContentContainer from "./workContent";
+import { useQuery } from "react-query";
+import { getWorksLength } from "../services/workServices";
 
 export default function WorksContainer() {
+    const { data, isSuccess } = useQuery("work-length", getWorksLength);
+
     return (
         <Layout>
             <Layout.Inner>
@@ -21,7 +24,7 @@ export default function WorksContainer() {
                     </WorkIntro.TextWrapper>
                     <div>
                         <WorkIntro.Pane>
-                            <WorkIntro.NumberText>64</WorkIntro.NumberText>
+                            {isSuccess && <WorkIntro.NumberText>{data}</WorkIntro.NumberText>}
                             <WorkIntro.NumberParagraph>
                                 Completed Projects
                             </WorkIntro.NumberParagraph>
@@ -29,7 +32,6 @@ export default function WorksContainer() {
                     </div>
                 </WorkIntro>
                 <Layout.Pane>
-                    {/*<WorkSkeleton />*/}
                     <WorkContentContainer />
                     <SocialContainer />
                     <InspiredContainer />

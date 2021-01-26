@@ -24,7 +24,6 @@ export const contactModalOpenAnimation = () => {
             },
         })
 };
-
 export const closeContactModal = async () => {
     tl.to(".contact_modal_wrapper_animation",
         {
@@ -37,4 +36,4 @@ export const closeContactModal = async () => {
             opacity: 0,
             width: 0,
         }, "Start")
-}
+};

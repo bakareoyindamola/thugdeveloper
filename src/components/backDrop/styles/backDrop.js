@@ -8,7 +8,7 @@ export const Inner = styled.div`
   left: 0;
   right: 0;
   border: 0;
-  width: 100%;
+  width: 0;
   height: 100vh;
   background: rgba(0, 0, 0, .5);
   z-index: 1000;

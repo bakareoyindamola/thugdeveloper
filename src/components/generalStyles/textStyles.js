@@ -28,10 +28,15 @@ export const Paragraph = styled.p`
   }
   &.fadeIn {
     opacity: 0;
+    transform: translateY(60px);
   }
   &.social-card-content-animate,
   &.skill_text_animation {
     opacity: 0;
     transform: translateY(60px);
+  }
+  &.work_details_result {
+    max-width: 611px;
+    margin: auto;
   }
 `;

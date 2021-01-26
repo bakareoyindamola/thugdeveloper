@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { TopNavigation } from "../components";
 import { Routes } from "../constant/routes";
+import { contactModalOpenAnimation } from "../animations";
 
 export default function TopNavigationContainer({ themeSwitch }) {
     const [navbar, setNavbar] = useState(false);
@@ -12,8 +13,7 @@ export default function TopNavigationContainer({ themeSwitch }) {
     useEffect(() => {
         window.addEventListener("scroll", addBackground)
         return () => window.addEventListener("scroll", addBackground);
-    }, [navbar])
-
+    }, [navbar]);
 
     return (
         <TopNavigation className={ navbar ? `active` : null }>
@@ -39,7 +39,10 @@ export default function TopNavigationContainer({ themeSwitch }) {
                             Certification
                         </TopNavigation.NavLink>
                     </TopNavigation.List>
-                    <TopNavigation.List onClick={themeSwitch}>
+                    <TopNavigation.List onClick={async () => {
+                        // themeSwitch();
+                        await contactModalOpenAnimation();
+                    }}>
                         <TopNavigation.NavButton>
                             Let's talk
                         </TopNavigation.NavButton>

@@ -12,6 +12,9 @@ export const Container = styled.header`
   @media screen and (max-width: 1375px) {
     padding: 3.62rem 2.75rem;
   }
+  @media screen and (max-width: 540px) {
+    padding: 3.62rem 1.75rem;
+  }
 `;
 
 export const Inner = styled.section`
@@ -26,6 +29,9 @@ export const Pane = styled.div`
   margin: 0 4rem 0 2.25rem;
   @media screen and (max-width: 1375px) {
     margin: 0 3rem 0 0;
+  }
+  @media screen and (max-width: 750px) {
+    margin: 0;
   }
 `;
 

@@ -11,4 +11,6 @@ export { default as WorkIntro } from './workIntro';
 export { default as WorkContent } from './workContent';
 export { default as WorkDetails } from './workDetails';
 export { default as TopNavigation } from './topNavigation';
+export { default as ContactModal } from './contactModal';
 export { default as SkeletonLoader } from './skeletonLoader';
+export { default as BackDrop } from './backDrop';

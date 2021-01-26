@@ -17,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   h1,
   h2,
@@ -34,11 +35,17 @@ export const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     font-family: 'Courier Prime', monospace;
+    &:focus {
+      outline: 2px solid ${({ theme }) => theme.text };
+    }
   }
   button {
     cursor: pointer;
     outline: none;
     border: none;
+    &:focus {
+      outline: 2px solid ${({ theme }) => theme.text };
+    }
   }
   input {
     outline: none;

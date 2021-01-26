@@ -59,6 +59,8 @@ export const Link = styled(ReactLink)`
 `;
 
 export const NavButton = styled.button`
+  font-size: 1rem;
+  line-height: 1.125rem;
   padding: 0;
   background: transparent;
   color: ${({ theme }) => theme.text };

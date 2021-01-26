@@ -35,6 +35,7 @@ export const ProjectDetails = styled.div`
 
 export const ImageWrapper = styled.div`
   opacity: 0;
+  transform: translateY(60px);
   max-width: 612px;
   width: 100%;
   height: 422px;
@@ -70,6 +71,7 @@ export const Image = styled.img`
 
 export const ProjectName = styled.h5`
   opacity: 0;
+  transform: translateY(60px);
   text-transform: capitalize;
   font-weight: normal;
   font-size: 2rem;
@@ -82,6 +84,7 @@ export const ProjectName = styled.h5`
 
 export const ButtonWrapper = styled.div`
   opacity: 0;
+  transform: translateY(60px);
   max-width: 204px;
   margin-top: 2rem;
   @media screen and (max-width: 680px) {

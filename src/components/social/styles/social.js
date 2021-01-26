@@ -15,6 +15,13 @@ export const Wrapper = styled.div`
   grid-column-gap: 4rem;
   opacity: 0;
   transform: translateY(60px);
+  @media screen and (max-width: 950px) {
+    grid-column-gap: 2rem;
+  }
+  @media screen and (max-width: 550px) {
+    grid-template-columns: 100%;
+    grid-row-gap: 1rem;
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -29,8 +36,11 @@ export const Pane = styled.a`
   overflow: hidden;
   background-color: ${({ theme }) => theme.banner };
   border-radius: ${variables.bannerRadius};
-  ${({ social }) => social === "twitter" && `background: linear-gradient(252.24deg, #1767DF 16.06%, #0745A2 99.15%);`};
+  ${({ social }) => social === "twitter" && `background: linear-gradient(252.24deg, #1797DF 16.06%, #076AA2 99.15%);`};
   ${({ social }) => social === "instagram" && `background: linear-gradient(97.59deg, #FFC876 -5.99%, #FF008A 134.55%);`};
+  svg {
+    max-width: 100%;
+  }
 `;
 
 export const CardText = styled.p`

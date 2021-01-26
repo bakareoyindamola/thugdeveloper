@@ -15,7 +15,12 @@ import {
     GalleryContainer,
     GalleryImageWrapper,
     GalleryInner,
-    GalleryPicture
+    GalleryPicture,
+    Link,
+    ContributorsWrapper,
+    InfoPane,
+    InfoText,
+    Contributor
 } from './styles/workDetails';
 import { Paragraph, HeaderText } from "../generalStyles/textStyles";
 
@@ -93,4 +98,28 @@ WorkDetails.GalleryPicture = function WorkDetailsGalleryPicture ({ children, ...
 
 WorkDetails.ImageOverlay = function WorkDetailsImageOverlay ({ ...restProps }) {
     return <ImageOverlay {...restProps} />
+}
+
+WorkDetails.InfoWrapper = function WorkDetailsInfoWrapper ({ children, ...restProps }) {
+    return <InfoWrapper {...restProps}>{children}</InfoWrapper>
+}
+
+WorkDetails.InfoPane = function WorkDetailsInfoPane ({ children, ...restProps }) {
+    return <InfoPane {...restProps}>{children}</InfoPane>
+}
+
+WorkDetails.InfoText = function WorkDetailsInfoText ({ children, ...restProps }) {
+    return <InfoText {...restProps}>{children}</InfoText>
+}
+
+WorkDetails.Link = function WorkDetailsLink ({ children, ...restProps }) {
+    return <Link {...restProps} target={"_blank"}>{children}</Link>
+}
+
+WorkDetails.ContributorsWrapper = function WorkDetailsContributorsWrapper ({ children, ...restProps }) {
+    return <ContributorsWrapper {...restProps}>{children}</ContributorsWrapper>
+}
+
+WorkDetails.Contributor = function WorkDetailsContributor ({ children, ...restProps }) {
+    return <Contributor {...restProps}>{children}</Contributor>
 }

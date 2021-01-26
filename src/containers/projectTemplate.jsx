@@ -21,7 +21,7 @@ export default function ProjectTemplate({ name, description, image, direction, s
     const fadeIn = element => {
         gsap.to(element, 1, {
             opacity: 1,
-            y: -60,
+            y: 0,
             ease: "power4.out",
             stagger: {
                 amount: 0.3

@@ -18,6 +18,8 @@ export const Inner = styled.article`
   border-radius: ${variables.bannerRadius};
   padding: 3.625rem 3.5rem;
   background-color: #5C3737;
+  ${({ direction }) => direction && `flex-direction: row-reverse;`}
+  ${({ color }) => color && `background-color: #074E65;`}
   @media screen and (max-width: 1225px) {
     padding: 1.5rem;
   }

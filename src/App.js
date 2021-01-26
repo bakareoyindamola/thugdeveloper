@@ -3,8 +3,16 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from './globalStyles';
 import { lightTheme, darkTheme } from "./constant/themes";
 import { useDarkMode } from "./hooks/useDarkMode";
-import { Homepage, WorksPage, WorkDetails } from './pages';
-import TopNavigationContainer from "./containers/topNavigation";
+import {
+  Homepage,
+  WorksPage,
+  WorkDetails,
+} from './pages';
+import {
+  TopNavigationContainer,
+  ContactModalContainer,
+  BackdropContainer
+} from "./containers";
 import { Routes } from "./constant/routes";
 
 function App() {
@@ -15,6 +23,9 @@ function App() {
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
         <TopNavigationContainer themeSwitch={themeSwitch} />
+        <BackdropContainer>
+          <ContactModalContainer />
+        </BackdropContainer>
         <Switch>
           <Route exact path={Routes.HOME}  component={ Homepage } />
           <Route exact path={Routes.WORKS}  component={ WorksPage } />

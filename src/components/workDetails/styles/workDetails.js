@@ -17,6 +17,14 @@ export const ImageWrapper = styled.div`
   padding: 3.5rem;
   border-radius: ${variables.bannerRadius};
   margin-bottom: 4.125rem;
+  @media screen and (max-width: 750px) {
+    padding: 2.5rem;
+    height: 420px;
+  }
+  @media screen and (max-width: 645px) {
+    padding: 1.5rem;
+    height: 350px;
+  }
 `;
 
 export const ImageOverlay = styled.div`
@@ -76,12 +84,11 @@ export const SkillText = styled.p`
   color: #333333;
 `;
 
-export const InfoWrapper = styled.section``;
-
 export const ResultWrapper = styled.section`
-  max-width: 611px;
-  margin: 0 auto 7.5rem;
+  margin: 3.43rem auto 7.5rem;
   text-align: center;
+  padding-top: 7.5rem;
+  border-top: 1px solid ${({ theme }) => theme.line };
 `;
 
 export const ResultText = styled.h4`
@@ -104,10 +111,17 @@ export const GalleryInner = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1.5rem;
   @media screen and (max-width: 1300px) {
-    padding: 8.25rem 4rem 8.25rem;
+    padding: 8.25rem 4rem;
   }
   @media screen and (max-width: 1050px) {
-    padding: 8.25rem 2rem 8.25rem;
+    padding: 8.25rem 2rem;
+  }
+  @media screen and (max-width: 800px) {
+    padding: 5.25rem 2rem;
+  }
+  @media screen and (max-width: 680px) {
+    padding: 1.5rem 2rem;
+    grid-template-columns: 100%;
   }
 `;
 
@@ -117,10 +131,91 @@ export const GalleryImageWrapper = styled.div`
   border-radius: ${variables.bannerRadius};
   overflow: hidden;
   object-fit: cover;
+  @media screen and (max-width: 800px) {
+    height: 320px;
+  }
+  @media screen and (max-width: 680px) {
+    height: 220px;
+  }
 `;
 
 export const GalleryPicture = styled.picture`
   border-radius: ${variables.bannerRadius};
+`;
+
+export const InfoWrapper = styled.section`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  @media screen and (max-width: 750px) {
+    margin-bottom: 1rem;
+  }
+`;
+
+export const InfoPane = styled.div`
+  &.info {
+    display: flex;
+    margin-right: 2rem;
+    div {
+      margin-right: 4rem;
+    }
+    div:last-of-type {
+      margin-right: 0;
+    }
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+    @media screen and (max-width: 750px) {
+      flex-direction: column;
+      div {
+        margin: 0 0 1rem 0;
+      }
+    }
+  }
+  &.contributors {
+    margin-right: -1rem;
+  }
+`;
+
+export const InfoText = styled.p`
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: .68rem;
+  &.header {
+    color: #828282;
+    text-transform: lowercase;
+  }
+  &.lead-text {
+    text-transform: capitalize;
+  }
+`;
+
+export const Link = styled.a`
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: ${({ theme }) => theme.text };
+  cursor: pointer;
+`;
+
+export const ContributorsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  @media screen and (max-width: 600px) {
+    max-width: 272px;
+    width: 100%;
+    //justify-content: flex-end;
+  }
+  @media screen and (max-width: 403px) {
+    justify-content: flex-end;
+  }
+`;
+
+export const Contributor = styled.div`
+  width: 56px;
+  height: 56px;
+  background: #F2F2F2;
+  border-radius: 10px;
+  margin: 0 1rem 1rem 0;
 `;
 
 

@@ -64,6 +64,11 @@ export const CheckOutSVG = () => <svg width="24" height="24" viewBox="0 0 24 24"
     <path d="M11 12L3.92901 19.071L2.51501 17.657L8.17201 12L2.51501 6.34299L3.92901 4.92999L11 12ZM11 19H21V21H11V19Z" fill="white"/>
 </svg>
 
+export const CancelSVG = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M5 5L12 12M12 12L19 19M12 12L19 5M12 12L5 19" stroke="black" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
+
+
 
 
 

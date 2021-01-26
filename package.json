@@ -17,7 +17,8 @@
     "react-scroll": "^1.8.1",
     "react-use": "^15.3.8",
     "styled-components": "^5.2.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "yup": "^0.32.8"
   },
   "scripts": {
     "start": "react-scripts start",

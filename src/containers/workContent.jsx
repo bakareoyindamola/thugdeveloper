@@ -17,7 +17,7 @@ export default function WorkContentContainer() {
             {data.map((work) => {
                 if(num%2 === 0) {
                     num++
-                    return <WorkContent.LinkWrapper key={work.id} to={""}>
+                    return <WorkContent.LinkWrapper key={work.id} to={`/work/${work.id}`}>
                         <WorkContent.Inner color={"true"} direction={"true"}>
                             <WorkContent.ProjectWrapper>
                                 <WorkContent.ProjectName>{work.title}</WorkContent.ProjectName>
@@ -44,7 +44,7 @@ export default function WorkContentContainer() {
                     </WorkContent.LinkWrapper>
                 } else {
                     num++
-                    return <WorkContent.LinkWrapper key={work.id} to={""}>
+                    return <WorkContent.LinkWrapper key={work.id} to={`/work/${work.id}`}>
                         <WorkContent.Inner>
                             <WorkContent.ProjectWrapper>
                                 <WorkContent.ProjectName>{work.title}</WorkContent.ProjectName>

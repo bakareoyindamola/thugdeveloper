@@ -3,5 +3,5 @@ export const Routes = {
     ABOUT: "/about",
     CERTIFICATION: "/certification",
     WORKS: "/works",
-    WORK_DETAILS: "/work/:name"
+    WORK_DETAILS: "/work/:id"
 }

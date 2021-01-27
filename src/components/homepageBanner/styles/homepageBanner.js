@@ -98,7 +98,6 @@ export const Link = styled(ReactScroll)`
   font-size: 1rem;
   line-height: 1.5rem;
   color: #FFF;
-  transition: all .3s ease-in-out;
   cursor: pointer;
   svg {
     margin-left: 1rem;

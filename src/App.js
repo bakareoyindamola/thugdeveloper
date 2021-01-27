@@ -1,20 +1,20 @@
+import { Suspense, lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from './globalStyles';
 import { lightTheme, darkTheme } from "./constant/themes";
 import { useDarkMode } from "./hooks/useDarkMode";
 import {
-  Homepage,
-  WorksPage,
-  WorkDetails,
-} from './pages';
-import {
   TopNavigationContainer,
   ContactModalContainer,
   BackdropContainer
 } from "./containers";
 import { Routes } from "./constant/routes";
-import { Transition } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
+
+const Homepage = lazy(() => import("./containers/homepage"));
+const WorksPage = lazy(() => import("./containers/works"));
+const WorkDetails = lazy(() => import("./containers/workDetails"));
 
 function App() {
   const [theme, themeSwitch] = useDarkMode();
@@ -32,24 +32,26 @@ function App() {
         <BackdropContainer>
           <ContactModalContainer />
         </BackdropContainer>
+      <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           {routes.map(({path, name, Component}) => (
             <Route key={name} path={path} exact>
               {({ match }) => (
-                  <Transition
+                  <CSSTransition
                     in={match != null}
                     timeout={300}
-                    className={"page"}
+                    classNames={"page"}
                     unmountOnExit
                   >
                     <div className="page">
                       <Component />
                     </div>
-                  </Transition>
+                  </CSSTransition>
               )}
             </Route>
           ))}
         </Switch>
+      </Suspense>
     </ThemeProvider>
   );
 }

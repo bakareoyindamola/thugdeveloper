@@ -10,9 +10,9 @@ export const Container = styled.nav`
   top: 0;
   z-index: 999;
   background-color: ${({ theme }) => theme.body };
-  transition: all .20s linear;
+  transition: box-shadow .20s linear;
   &.active {
-    box-shadow: 0px 30px 60px rgba(32, 32, 32, 0.1);
+    box-shadow: 0 30px 60px rgba(32, 32, 32, 0.1);
   }
 `;
 

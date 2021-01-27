@@ -5,13 +5,18 @@ import HomepageSkillsContainer from "./homepageSkills";
 import SocialContainer from "./social";
 import InspiredContainer from "./inspired";
 import FooterContainer from "./footer";
-import { getBestTwoProjects } from "../services/homepageService";
+import { getWorks } from "../services/workServices";
 import { useQuery } from "react-query";
 
 const SomeProjectsContainer = lazy(() => import("./someProjects"))
 
 export default function HomepageContainer() {
-    const { data, isLoading, isError, error } = useQuery("best-two-projects", getBestTwoProjects);
+    const { data, isLoading, isError, isSuccess, error } = useQuery("best-two-projects", getWorks);
+    function filterProjects(project){
+        return project.homepage === true;
+    }
+
+    const bestTwo = data && data.filter( project => filterProjects(project));
 
     if (isLoading) {
         return <span>Loading...</span>
@@ -28,7 +33,7 @@ export default function HomepageContainer() {
                     <HomepageSkillsContainer />
                     <Suspense fallback={<div>Loading</div>} >
                         <SomeProjectsContainer
-                            bestProjects={data}
+                            bestProjects={bestTwo}
                         />
                     </Suspense>
                     <SocialContainer />

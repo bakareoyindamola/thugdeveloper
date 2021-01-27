@@ -8,9 +8,10 @@ import { useDimension } from "../hooks";
 import { DownArrow } from "./svgs";
 
 export default function HomepageBannerContainer() {
-    const [src, { blur }] = useProgressiveImage(
+    // [src, { blur }]
+    const [src] = useProgressiveImage(
         "https://res.cloudinary.com/theonlybakare/image/upload/w_50/v1611271634/Portfolio/User/4836AF10-1E75-457D-B74A-202D25791ABC_xch5aq.jpg",
-        "https://res.cloudinary.com/theonlybakare/image/upload/v1611271634/Portfolio/User/4836AF10-1E75-457D-B74A-202D25791ABC_xch5aq.jpg"
+        "https://res.cloudinary.com/theonlybakare/image/upload/f_auto/v1611271634/Portfolio/User/4836AF10-1E75-457D-B74A-202D25791ABC_xch5aq.jpg"
     );
     const [width] = useDimension("width");
 

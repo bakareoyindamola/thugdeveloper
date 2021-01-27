@@ -5,8 +5,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Courier Prime', monospace;
   }      
-  body,
-  html {
+  body{
     font-family: 'Courier Prime', monospace;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;

@@ -3,12 +3,11 @@ import { SomeProjects} from "../components";
 import { SomeProjectProject } from "../components/someProjects";
 import { useIntersection } from "react-use";
 import gsap from 'gsap';
-import { Routes } from "../constant/routes";
 
 //Assets
 import { CheckOutSVG } from "./svgs";
 
-export default function ProjectTemplate({ name, description, image, direction, small_image, medium_image }) {
+export default function ProjectTemplate({ id, name, description, image, direction, small_image, medium_image }) {
     const containerRef = createRef();
     const intersection = useIntersection(containerRef, {
         root: null,
@@ -33,7 +32,7 @@ export default function ProjectTemplate({ name, description, image, direction, s
     intersection && intersection.intersectionRatio > .7 && fadeIn(".fadeIn");
 
     return (
-        <SomeProjectProject ref={containerRef} direction={direction ? 'row-reverse' : "row"}>
+        <SomeProjectProject ref={containerRef} direction={direction ? 'row-reverse' : "row"} key={id}>
             <SomeProjects.ImageWrapper className={"fadeIn"}>
                 <SomeProjects.Picture>
                     {small_image !== undefined && <SomeProjects.ImageSource srcSet={baseUrl+small_image} media="(min-width: 500px)" sizes={"100%"} />}
@@ -49,7 +48,7 @@ export default function ProjectTemplate({ name, description, image, direction, s
                 <SomeProjects.ProjectName className={"fadeIn"}>{name}</SomeProjects.ProjectName>
                 <SomeProjects.Paragraph className={"fadeIn"}>{description}</SomeProjects.Paragraph>
                 <SomeProjects.ButtonWrapper className={"fadeIn"}>
-                    <SomeProjects.Link to={Routes.WORK_DETAILS}>
+                    <SomeProjects.Link to={`/work/${id}`}>
                         Check it out
                         <CheckOutSVG />
                     </SomeProjects.Link>

@@ -4,53 +4,68 @@ import SocialContainer from "./social";
 import InspiredContainer from "./inspired";
 import FooterContainer from "./footer";
 import GithubContainer from "./github";
+import { useParams } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getWorkDetails } from "../services/workServices";
+import truncateString from "../helpers/truncateString";
+import useProgressiveImg from "../hooks/useProgressiveImage";
 
 export default function WorkDetailsContainer () {
+    const { id } = useParams();
+    const { data, isLoading } = useQuery(['work-details', id], getWorkDetails);
+    const baseURL = process.env.REACT_APP_PORTFOLIO_API_BASE_URL
+    const lowImage = data&&data.cover_image.formats.thumbnail.url;
+    const [src, { blur }] = useProgressiveImg(
+        `${baseURL}${lowImage}`,
+        data&&data.cover_image.name
+    );
+
+    if(isLoading) {
+        return <div>Loading...</div>
+    }
+
     return (
         <Layout>
             <Layout.Inner>
                 <WorkDetails>
                     <WorkDetails.TextWrapper>
-                        <WorkDetails.HeaderText>Project Name</WorkDetails.HeaderText>
-                        <WorkDetails.Paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Nulla elit nunc, curabitur nunc purus.
-                            Lorem consectetur volutpat sem tellus vestibulum velit sed nullam ultrices.
-                            Suscipit viverra pharetra aliquam ultrices.
-                        </WorkDetails.Paragraph>
+                        <WorkDetails.HeaderText>{data.title}</WorkDetails.HeaderText>
+                        <WorkDetails.Paragraph>{data.description}</WorkDetails.Paragraph>
                     </WorkDetails.TextWrapper>
                     <WorkDetails.ImageWrapper>
                         <WorkDetails.ImageOverlay />
                         <WorkDetails.Picture>
-                            <WorkDetails.ImageSource srcSet={""} />
-                            <WorkDetails.Image src={"https://cdn.pixabay.com/photo/2015/02/02/11/09/office-620822_1280.jpg"} alt={""} />
+                            <WorkDetails.ImageSource srcSet={`${baseURL}${lowImage}`} media="(max-width: 600px)" />
+                            <WorkDetails.Image src={src}
+                                               style={{
+                                                    filter: blur ? 20 : 0,
+                                                    transition: "filter .15s linear"
+                                                }}
+                                               alt={data.title} />
                         </WorkDetails.Picture>
                         <WorkDetails.SkillWrapper>
-                            <WorkDetails.Skill>
-                                <WorkDetails.SkillText>
-                                    React
-                                </WorkDetails.SkillText>
-                            </WorkDetails.Skill>
-                            <WorkDetails.Skill>
-                                <WorkDetails.SkillText>
-                                    JS
-                                </WorkDetails.SkillText>
-                            </WorkDetails.Skill>
+                            {data.skills.map(skill => (
+                                <WorkDetails.Skill key={skill.id}>
+                                    <WorkDetails.SkillText>
+                                        {skill.name}
+                                    </WorkDetails.SkillText>
+                                </WorkDetails.Skill>
+                            ))}
                         </WorkDetails.SkillWrapper>
                     </WorkDetails.ImageWrapper>
                     <WorkDetails.InfoWrapper>
                         <WorkDetails.InfoPane className={"info"}>
                             <WorkDetails.InfoPane>
                                 <WorkDetails.InfoText className={"header"}>role</WorkDetails.InfoText>
-                                <WorkDetails.InfoText className={"lead-text"}>frontend developer</WorkDetails.InfoText>
+                                <WorkDetails.InfoText className={"lead-text"}>{data.role}</WorkDetails.InfoText>
                             </WorkDetails.InfoPane>
                             <WorkDetails.InfoPane>
                                 <WorkDetails.InfoText className={"header"}>length</WorkDetails.InfoText>
-                                <WorkDetails.InfoText className={"lead-text"}>1 month</WorkDetails.InfoText>
+                                <WorkDetails.InfoText className={"lead-text"}>{data.duration}</WorkDetails.InfoText>
                             </WorkDetails.InfoPane>
                             <WorkDetails.InfoPane>
                                 <WorkDetails.InfoText className={"header"}>link/url</WorkDetails.InfoText>
-                                <WorkDetails.Link href={""}>https</WorkDetails.Link>
+                                <WorkDetails.Link href={data.link}>{truncateString(data.link, 12)}</WorkDetails.Link>
                             </WorkDetails.InfoPane>
                         </WorkDetails.InfoPane>
                         <WorkDetails.InfoPane className={"contributors"}>
@@ -64,12 +79,10 @@ export default function WorkDetailsContainer () {
                         </WorkDetails.InfoPane>
                     </WorkDetails.InfoWrapper>
                     <WorkDetails.InfoText className={"header"}>repo</WorkDetails.InfoText>
-                    <GithubContainer href={""} />
+                    <GithubContainer href={data.github_link} />
                     <WorkDetails.ResultWrapper>
                         <WorkDetails.ResultText>THE RESULT</WorkDetails.ResultText>
-                        <WorkDetails.Paragraph className={"work_details_result"}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elit nunc, curabitur nunc purus. Lorem consectetur volutpat sem tellus vestibulum velit sed nullam ultrices. Suscipit viverra pharetra aliquam ultrices.
-                        </WorkDetails.Paragraph>
+                        <WorkDetails.Paragraph className={"work_details_result"}>{data.result_description}</WorkDetails.Paragraph>
                     </WorkDetails.ResultWrapper>
                 </WorkDetails>
             </Layout.Inner>

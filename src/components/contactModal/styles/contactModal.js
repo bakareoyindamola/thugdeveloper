@@ -29,7 +29,23 @@ export const Inner = styled.div`
   }
 `;
 
-export const Pane = styled.div``;
+export const Pane = styled.div`
+  &.footer-links-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  &.success-modal {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(60px);
+  }
+`;
 
 export const HeaderText = styled.h4`
   font-weight: bold;
@@ -38,6 +54,15 @@ export const HeaderText = styled.h4`
   margin-bottom: 1.5rem;
   span {
     margin-left: 1rem;
+  }
+  &.contact-success-text {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 27.6px;
+  }
+  &.success_modal_text_animation {
+    opacity: 0;
+    transform: translateY(50px);
   }
 `;
 
@@ -65,7 +90,7 @@ export const Label = styled.label`
 export const Input = styled(Field)`
   width: 100%;
   padding: .937rem 1.43rem;
-  background: #F2F2F2;
+  background-color: #F2F2F2;
   border-radius: 10px;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -79,19 +104,35 @@ export const Input = styled(Field)`
   }
   &:active,
   &:focus {
-    background: #FFF;
+    background-color: #FFF;
     border: 1px solid #BDBDBD;
+  }
+  &.error {
+    border: 1px solid #FF0000;
+    background-color: #FFF;
   }
 `;
 
 export const ButtonWrapper = styled.div`
   max-width: 127px;
   margin-top: 1.5rem;
+  &.success_modal_text_animation {
+    opacity: 0;
+    transform: translateY(50px);
+  }
 `;
 
-export const Footer = styled.footer``;
+export const Footer = styled.footer`
+  margin-top: 3rem;
+`;
 
-export const Link = styled.a``;
+export const Link = styled.a`
+  display: inline-block;
+  margin-right: 2rem;
+  &:last-of-type {
+    margin-right: 0;
+  }
+`;
 
 export const CancelWrapper = styled.div`
   position: absolute;
@@ -104,4 +145,6 @@ export const CancelWrapper = styled.div`
   z-index: 1002;
   cursor: pointer;
 `;
+
+
 

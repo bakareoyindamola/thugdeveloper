@@ -99,12 +99,38 @@ export const Link = styled(ReactScroll)`
   line-height: 1.5rem;
   color: #FFF;
   cursor: pointer;
-  svg {
+  div {
     margin-left: 1rem;
+    margin-top: -5px;
+    span {
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-bottom: 2px solid #fff;
+      border-right: 2px solid #fff;
+      transform: rotate(45deg);
+      animation: animate 2s infinite;
+      &:nth-child(2) {
+        animation-delay: -0.2s;
+      }
+    }
   }
   @media(hover: hover) and (pointer: fine) {
     &:hover {
       background: linear-gradient(97.59deg, #FFC876 -5.99%, #FF008A 134.55%);
+    }
+  }
+  @keyframes animate {
+    0% {
+      opacity: 0;
+      transform: rotate(45deg) translate(-3px, -3px);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: rotate(45deg) translate(3px, 3px);
     }
   }
 `;

@@ -71,7 +71,9 @@ export default function HomepageSkillsContainer() {
         <HomepageSkills ref={containerRef} id={"skills"}>
             <HomepageSkills.Pane>
                 <HomepageSkills.HeaderText className={"skill_text_animation"}>Skills<span>.</span></HomepageSkills.HeaderText>
-                <HomepageSkills.Paragraph className={"skill_text_animation"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elit nunc, curabitur nunc purus. Lorem consectetur volutpat sem tellus vestibulum velit sed nullam ultrices. Suscipit viverra pharetra aliquam ultrices.</HomepageSkills.Paragraph>
+                <HomepageSkills.Paragraph className={"skill_text_animation"}>
+                    I have a deep understanding of HTML5, CSS and JavaScript languages, and a good understanding of JavaScript frameworks and tools used in today's technology.
+                </HomepageSkills.Paragraph>
             </HomepageSkills.Pane>
             <HomepageSkills.CardsWrapper>
                 {skillsData.map(skill => (

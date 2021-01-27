@@ -35,16 +35,16 @@ export default function SocialContainer() {
             <Social.TextWrapper>
                 <Social.HeaderText className="social-card-content-animate">let's be social<span>.</span></Social.HeaderText>
                 <Social.Paragraph className="social-card-content-animate">
-                    Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit. Nulla elit nunc, curabitur
+                    I'm available for parties, available for jaiye, available for flexing.
+                    Would you send me the location?
                 </Social.Paragraph>
             </Social.TextWrapper>
             <Social.Wrapper className="social-card-content-animate">
-                <Social.Pane href={''} target={"_blank"} social={"twitter"}>
+                <Social.Pane href={'https://twitter.com/theonlybakare'} target={"_blank"} social={"twitter"}>
                     <Social.CardText>Twitter</Social.CardText>
                     <TwitterSVG />
                 </Social.Pane>
-                <Social.Pane href={''} target={"_blank"} social={"instagram"}>
+                <Social.Pane href={'https://www.instagram.com/thugdeveloper/'} target={"_blank"} social={"instagram"}>
                     <Social.CardText>Instagram</Social.CardText>
                     <InstagramSVG />
                 </Social.Pane>

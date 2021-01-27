@@ -5,6 +5,7 @@ import gsap from "gsap";
 
 //Assets
 import { CheckOutSVG } from "./svgs";
+import { contactModalOpenAnimation } from "../animations";
 
 export default function InspiredContainer() {
     let containerRef = createRef();
@@ -36,7 +37,7 @@ export default function InspiredContainer() {
                 I’ll buy the coffee.
             </Inspired.Paragraph>
             <Inspired.ButtonWrapper className={"inspired_text_animate"}>
-                <Button>
+                <Button onClick={contactModalOpenAnimation}>
                     Interested
                     <CheckOutSVG />
                 </Button>

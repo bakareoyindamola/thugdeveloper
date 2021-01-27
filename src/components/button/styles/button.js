@@ -21,4 +21,8 @@ export const Container = styled.button`
       background: linear-gradient(97.59deg, #FFC876 -5.99%, #FF008A 134.55%);
     }
   }
+  &:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+  }
 `;

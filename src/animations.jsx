@@ -22,7 +22,7 @@ export const contactModalOpenAnimation = () => {
             stagger: {
                 amount: .5
             },
-        })
+        }, "<.3");
 };
 export const closeContactModal = async () => {
     tl.to(".contact_modal_wrapper_animation",
@@ -30,10 +30,33 @@ export const closeContactModal = async () => {
             opacity: 0,
             right: "-540px",
             ease: Power3.easeOut,
-            duration: .5,
+            duration: .4,
         })
         .to(".contact_backdrop_animation", {
             opacity: 0,
             width: 0,
-        }, "Start")
+        }, "<.1")
 };
+
+export const closeContactForm = () => {
+    tl.to(".contact_form_animation", {
+        opacity: 0,
+        y: -60,
+        duration: .2,
+        ease: Power3.easeOut,
+    })
+        .to(".success_modal_animation", {
+            opacity: 1,
+            y: 0,
+            duration: .2,
+            ease: Power3.easeOut,
+        })
+        .to(".success_modal_text_animation", {
+            opacity: 1,
+            y: 0,
+            duration: .7,
+            stagger: {
+                amount: .5
+            }
+        }, "Start")
+}

@@ -5,7 +5,7 @@ export default function FooterContainer() {
     return (
         <Footer>
             <Footer.Wrapper>
-                <GithubContainer href={"https://www.f.com"} rel={"noopener noreferrer"} />
+                <GithubContainer href={"https://github.com/bakareoyindamola"} rel={"noopener noreferrer"} />
                 <Footer.Paragraph>&copy; 2021 ThugDeveloper</Footer.Paragraph>
             </Footer.Wrapper>
             <Footer.Wrapper className={"bottom"}>

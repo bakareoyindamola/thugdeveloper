@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { TopNavigation } from "../components";
 import { Routes } from "../constant/routes";
 import { contactModalOpenAnimation } from "../animations";
+import {useDimension} from "../hooks";
 
-export default function TopNavigationContainer({ themeSwitch }) {
+export default function TopNavigationContainer() {
     const [navbar, setNavbar] = useState(false);
+    const [width] = useDimension("width");
 
     const addBackground = () => {
         window.scrollY >= 55 ? setNavbar(true) : setNavbar(false)
@@ -23,7 +25,7 @@ export default function TopNavigationContainer({ themeSwitch }) {
                         Logo
                     </TopNavigation.Link>
                 </TopNavigation.Pane>
-                <TopNavigation.ListWrapper>
+                {width >= 580 && <TopNavigation.ListWrapper>
                     <TopNavigation.List>
                         <TopNavigation.NavLink to={Routes.WORKS}>
                             Work
@@ -39,15 +41,13 @@ export default function TopNavigationContainer({ themeSwitch }) {
                             Certification
                         </TopNavigation.NavLink>
                     </TopNavigation.List>
-                    <TopNavigation.List onClick={async () => {
-                        // themeSwitch();
-                        await contactModalOpenAnimation();
-                    }}>
+                    <TopNavigation.List onClick={contactModalOpenAnimation}>
                         <TopNavigation.NavButton>
                             Let's talk
                         </TopNavigation.NavButton>
                     </TopNavigation.List>
-                </TopNavigation.ListWrapper>
+                </TopNavigation.ListWrapper>}
+
             </TopNavigation.Inner>
         </TopNavigation>
     )

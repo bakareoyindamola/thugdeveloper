@@ -30,5 +30,5 @@ export const NumberParagraph = styled.p`
 `;
 
 export const TextWrapper = styled.div`
-  max-width: 441px;
+  max-width: 600px;
 `;

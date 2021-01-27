@@ -9,7 +9,8 @@ import {
     Label,
     CancelWrapper,
     InputWrapper,
-    Footer
+    Footer,
+    Link
 } from './styles/contactModal';
 import { Paragraph } from "../generalStyles/textStyles";
 
@@ -59,4 +60,8 @@ ContactModal.Footer = function ContactModalFooter ({ children, ...restProps }) {
 
 ContactModal.CancelWrapper = function ContactModalCancelWrapper ({ children, ...restProps }) {
     return <CancelWrapper {...restProps}>{children}</CancelWrapper>
+}
+
+ContactModal.Link = function ContactModalLink ({ children, ...restProps }) {
+    return <Link {...restProps} target={"_blank"}>{children}</Link>
 }

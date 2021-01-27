@@ -16,10 +16,14 @@ export default function WorksContainer() {
             <Layout.Inner>
                 <WorkIntro>
                     <WorkIntro.TextWrapper>
-                        <WorkIntro.HeaderText>some of my work<span>.</span></WorkIntro.HeaderText>
-                        <WorkIntro.Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elit nunc, curabitur</WorkIntro.Paragraph>
+                        <WorkIntro.HeaderText>works<span>.</span></WorkIntro.HeaderText>
+                        <WorkIntro.Paragraph>
+                            I am very passionate about web accessibility, web performance, UI effects and creating friendly and dynamic user experiences.
+                            <br /><br />
+                            React is my brother, figma is my guy, Hire me.
+                        </WorkIntro.Paragraph>
                         <WorkIntro.GithubWrapper>
-                            <GithubContainer href={"https://www.f.com"} />
+                            <GithubContainer href={"https://github.com/bakareoyindamola"} />
                         </WorkIntro.GithubWrapper>
                     </WorkIntro.TextWrapper>
                     <div>

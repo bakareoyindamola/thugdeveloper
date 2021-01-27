@@ -4,9 +4,6 @@ import useProgressiveImage from "../hooks/useProgressiveImage";
 import gsap, { Power3 } from "gsap";
 import { useDimension } from "../hooks";
 
-//Assets
-import { DownArrow } from "./svgs";
-
 export default function HomepageBannerContainer() {
     // [src, { blur }]
     const [src] = useProgressiveImage(
@@ -82,7 +79,10 @@ export default function HomepageBannerContainer() {
           <HomepageBanner.ButtonWrapper className={"homepage_banner_text_animation"}>
               <HomepageBanner.Link to={"skills"} smooth={true} duration={50}>
                   Take a tour
-                  <DownArrow />
+                  <div>
+                      <span />
+                      <span />
+                  </div>
               </HomepageBanner.Link>
           </HomepageBanner.ButtonWrapper>
       </HomepageBanner>

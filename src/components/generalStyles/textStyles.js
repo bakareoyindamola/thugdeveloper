@@ -39,4 +39,15 @@ export const Paragraph = styled.p`
     max-width: 611px;
     margin: auto;
   }
+  &.error-text {
+    font-weight: 400;
+    margin-top: .49rem;
+    font-size: .75rem;
+    line-height: 1.125rem;
+    color: #FF0000;
+  }
+  &.success_modal_text_animation {
+    opacity: 0;
+    transform: translateY(50px);
+  }
 `;

@@ -17,11 +17,10 @@ import ImageLoad from "../helpers/imageLoad";
 export default function WorkDetailsContainer () {
     const { id } = useParams();
     const { data, isLoading, isError, error } = useQuery(['work-details', id], getWorkDetails);
-    const baseURL = process.env.REACT_APP_PORTFOLIO_API_BASE_URL
     const lowImage = data&&data.cover_image.formats.thumbnail.url;
     const [src, { blur }] = useProgressiveImg(
-        `${baseURL}${lowImage}`,
-        `${baseURL}${data&&data.cover_image.url}`
+        `${lowImage}`,
+        `${data&&data.cover_image.url}`
     );
 
     if(isLoading) {
@@ -46,7 +45,7 @@ export default function WorkDetailsContainer () {
                     <WorkDetails.ImageWrapper>
                         <WorkDetails.ImageOverlay />
                         <WorkDetails.Picture>
-                            <WorkDetails.ImageSource srcSet={`${baseURL}${lowImage}`} media="(max-width: 600px)" />
+                            <WorkDetails.ImageSource srcSet={lowImage} media="(max-width: 600px)" />
                             <WorkDetails.Image src={src}
                                                style={{
                                                     filter: blur ? 20 : 0,
@@ -104,8 +103,8 @@ export default function WorkDetailsContainer () {
                             <WorkDetails.GalleryImageWrapper key={image.id}>
                                 <WorkDetails.GalleryPicture>
                                     <ImageLoad
-                                        src={`${baseURL}${image.url}`}
-                                        placeholder={`${baseURL}${image.formats.thumbnail.url}`}
+                                        src={image.url}
+                                        placeholder={image.formats.thumbnail.url}
                                         alt={data.title}
                                         width={"100%"}
                                         height={"100%"}

@@ -15,7 +15,6 @@ export default function ProjectTemplate({ id, name, description, image, directio
         rootMargin: "0px",
         threshold: .7
     });
-    const baseUrl = process.env.REACT_APP_PORTFOLIO_API_BASE_URL;
 
     //Animation for fading in
     const fadeIn = element => {
@@ -37,8 +36,8 @@ export default function ProjectTemplate({ id, name, description, image, directio
             <SomeProjects.ImageWrapper className={"fadeIn"}>
                 <SomeProjects.Picture>
                     <ImageLoad
-                        src={`${baseUrl}${image}`}
-                        placeholder={`${baseUrl}${thumbnail_image}`}
+                        src={image}
+                        placeholder={thumbnail_image}
                         alt={name}
                         width={"100%"}
                         height={"100%"}

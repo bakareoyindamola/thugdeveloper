@@ -36,18 +36,18 @@ export default function TopNavigationContainer({ mobileNav, setMobileNav }) {
                         Logo
                     </TopNavigation.Link>
                 </TopNavigation.Pane>
-                {width <= 580
+                {width < 580
                     && <>
                         {mobileNav
                             ? <TopNavigation.NavButton
                             onClick={closeMobileNavigation}
                             >
-                                <MenuSVG />
+                                <TopCancelSVG />
                             </TopNavigation.NavButton>
                             : <TopNavigation.NavButton
                             onClick={openMobileNavigation}
                             >
-                                <TopCancelSVG />
+                                <MenuSVG />
                             </TopNavigation.NavButton>}
                        </>
                 }

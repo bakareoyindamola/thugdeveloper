@@ -1,4 +1,4 @@
-import { WorkDetails } from "../components";
+import {ViewLink, WorkDetails} from "../components";
 import { Layout } from "../components";
 import SocialContainer from "./social";
 import InspiredContainer from "./inspired";
@@ -10,18 +10,29 @@ import { getWorkDetails } from "../services/workServices";
 import truncateString from "../helpers/truncateString";
 import useProgressiveImg from "../hooks/useProgressiveImage";
 
+//Assets
+import {AndroidSVG, IOSSVG, LinkSVG} from "./svgs";
+import ImageLoad from "../helpers/imageLoad";
+
 export default function WorkDetailsContainer () {
     const { id } = useParams();
-    const { data, isLoading } = useQuery(['work-details', id], getWorkDetails);
+    const { data, isLoading, isError, error } = useQuery(['work-details', id], getWorkDetails);
     const baseURL = process.env.REACT_APP_PORTFOLIO_API_BASE_URL
     const lowImage = data&&data.cover_image.formats.thumbnail.url;
     const [src, { blur }] = useProgressiveImg(
         `${baseURL}${lowImage}`,
-        data&&data.cover_image.name
+        `${baseURL}${data&&data.cover_image.url}`
     );
 
     if(isLoading) {
         return <div>Loading...</div>
+    }
+
+    if(isError) {
+        console.log(error.response)
+        console.log(error.response.status)
+        console.log(error.response.statusText)
+        return <p>Error: {error.message}</p>
     }
 
     return (
@@ -87,29 +98,62 @@ export default function WorkDetailsContainer () {
                 </WorkDetails>
             </Layout.Inner>
             <WorkDetails.GalleryContainer>
-                <WorkDetails.GalleryInner>
-                    <WorkDetails.GalleryImageWrapper>
-                        <WorkDetails.GalleryPicture>
-                            <WorkDetails.ImageSource srcSet={""} />
-                            <WorkDetails.Image src={"https://cdn.pixabay.com/photo/2015/02/02/11/09/office-620822_1280.jpg"} alt={""} />
-                        </WorkDetails.GalleryPicture>
-                    </WorkDetails.GalleryImageWrapper>
-                    <WorkDetails.GalleryImageWrapper>
-                        <WorkDetails.GalleryPicture>
-                            <WorkDetails.ImageSource srcSet={""} />
-                            <WorkDetails.Image src={"https://cdn.pixabay.com/photo/2015/02/02/11/09/office-620822_1280.jpg"} alt={""} />
-                        </WorkDetails.GalleryPicture>
-                    </WorkDetails.GalleryImageWrapper>
-                    <WorkDetails.GalleryImageWrapper>
-                        <WorkDetails.GalleryPicture>
-                            <WorkDetails.ImageSource srcSet={""} />
-                            <WorkDetails.Image src={"https://cdn.pixabay.com/photo/2015/02/02/11/09/office-620822_1280.jpg"} alt={""} />
-                        </WorkDetails.GalleryPicture>
-                    </WorkDetails.GalleryImageWrapper>
+                <WorkDetails.GalleryInner layout={data&&data?.showcase_images.length}>
+                    {data&&data?.showcase_images.map(image => {
+                        return (
+                            <WorkDetails.GalleryImageWrapper key={image.id}>
+                                <WorkDetails.GalleryPicture>
+                                    <ImageLoad
+                                        src={`${baseURL}${image.url}`}
+                                        placeholder={`${baseURL}${image.formats.thumbnail.url}`}
+                                        alt={data.title}
+                                        width={"100%"}
+                                        height={"100%"}
+                                    />
+                                </WorkDetails.GalleryPicture>
+                            </WorkDetails.GalleryImageWrapper>
+                        )
+                    })}
                 </WorkDetails.GalleryInner>
             </WorkDetails.GalleryContainer>
             <Layout.Inner>
                 <Layout.Pane>
+                    {data.categories[0].name === "Web"
+                        && <ViewLink category={"web"}>
+                                <ViewLink.Link href={data.link}>
+                                    <LinkSVG />
+                                    Visit Live Site
+                                </ViewLink.Link>
+                            </ViewLink>
+                    }
+                    {data.categories[0].name === "Mobile"
+                        && <ViewLink category={"mobile"}>
+                                <ViewLink.Link href={data.android_link}>>
+                                    <AndroidSVG />
+                                    Android Download
+                                </ViewLink.Link>
+                                <ViewLink.Link href={data.ios_link}>
+                                    <IOSSVG />
+                                    iOS Download
+                                </ViewLink.Link>
+                            </ViewLink>
+                    }
+                    {data.categories[0].name === "Web and Mobile"
+                        && <ViewLink category={"web_and_mobile"}>
+                                <ViewLink.Link href={data.android_link}>
+                                    <AndroidSVG />
+                                    Android Download
+                                </ViewLink.Link>
+                                <ViewLink.Link href={data.ios_link}>
+                                    <IOSSVG />
+                                    iOS Download
+                                </ViewLink.Link>
+                                <ViewLink.Link href={data.link}>
+                                    <LinkSVG />
+                                    Visit Live Site
+                                </ViewLink.Link>
+                            </ViewLink>
+                    }
                     <SocialContainer />
                     <InspiredContainer />
                 </Layout.Pane>

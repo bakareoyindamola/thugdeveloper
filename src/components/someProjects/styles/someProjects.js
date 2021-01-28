@@ -52,6 +52,17 @@ export const Picture = styled.picture`
   width: 100%;
   height: 100%;
   border-radius: ${variables.bannerRadius};
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: ${variables.bannerRadius};
+    transition: filter .15s linear, transform .8s ease;
+    @media(hover: hover) and (pointer: fine) {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
 `;
 
 export const ImageSource = styled.source``

@@ -108,8 +108,8 @@ export const GalleryInner = styled.div`
   margin: auto;
   padding: 8.25rem 6.5rem 8.25rem 6.623rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 1.5rem;
+  ${({ layout }) => layout && `grid-template-columns: repeat(${layout}, 1fr);`};
   @media screen and (max-width: 1300px) {
     padding: 8.25rem 4rem;
   }
@@ -131,6 +131,7 @@ export const GalleryImageWrapper = styled.div`
   border-radius: ${variables.bannerRadius};
   overflow: hidden;
   object-fit: cover;
+  }
   @media screen and (max-width: 800px) {
     height: 320px;
   }
@@ -141,6 +142,17 @@ export const GalleryImageWrapper = styled.div`
 
 export const GalleryPicture = styled.picture`
   border-radius: ${variables.bannerRadius};
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: ${variables.bannerRadius};
+    transition: filter .15s linear, transform .8s ease;
+    @media(hover: hover) and (pointer: fine) {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
 `;
 
 export const InfoWrapper = styled.section`

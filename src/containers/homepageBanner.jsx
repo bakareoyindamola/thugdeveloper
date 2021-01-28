@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { HomepageBanner, Button } from "../components";
+import { HomepageBanner } from "../components";
 import useProgressiveImage from "../hooks/useProgressiveImage";
 import gsap, { Power3 } from "gsap";
 import { useDimension } from "../hooks";

@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { TopNavigation } from "../components";
 import { Routes } from "../constant/routes";
-import { contactModalOpenAnimation } from "../animations";
-import {useDimension} from "../hooks";
+import { contactModalOpenAnimation, openMobileNav, closeMobileNav } from "../animations";
+import { useDimension } from "../hooks";
+import { MenuSVG, TopCancelSVG } from "./svgs";
 
-export default function TopNavigationContainer() {
+export default function TopNavigationContainer({ mobileNav, setMobileNav }) {
     const [navbar, setNavbar] = useState(false);
     const [width] = useDimension("width");
 
@@ -17,14 +18,39 @@ export default function TopNavigationContainer() {
         return () => window.addEventListener("scroll", addBackground);
     }, [navbar]);
 
+    const openMobileNavigation = () => {
+        openMobileNav();
+        setMobileNav(true);
+    }
+
+    const closeMobileNavigation = () => {
+        closeMobileNav();
+        setMobileNav(false);
+    }
+
     return (
         <TopNavigation className={ navbar ? `active` : null }>
             <TopNavigation.Inner>
                 <TopNavigation.Pane>
-                    <TopNavigation.Link to={Routes.HOME}>
+                    <TopNavigation.Link onClick={closeMobileNavigation} to={Routes.HOME}>
                         Logo
                     </TopNavigation.Link>
                 </TopNavigation.Pane>
+                {width <= 580
+                    && <>
+                        {mobileNav
+                            ? <TopNavigation.NavButton
+                            onClick={closeMobileNavigation}
+                            >
+                                <MenuSVG />
+                            </TopNavigation.NavButton>
+                            : <TopNavigation.NavButton
+                            onClick={openMobileNavigation}
+                            >
+                                <TopCancelSVG />
+                            </TopNavigation.NavButton>}
+                       </>
+                }
                 {width >= 580 && <TopNavigation.ListWrapper>
                     <TopNavigation.List>
                         <TopNavigation.NavLink to={Routes.WORKS}>
@@ -47,7 +73,6 @@ export default function TopNavigationContainer() {
                         </TopNavigation.NavButton>
                     </TopNavigation.List>
                 </TopNavigation.ListWrapper>}
-
             </TopNavigation.Inner>
         </TopNavigation>
     )

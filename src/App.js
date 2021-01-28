@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { useState, Suspense, lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from './globalStyles';
@@ -7,7 +7,8 @@ import { useDarkMode } from "./hooks/useDarkMode";
 import {
   TopNavigationContainer,
   ContactModalContainer,
-  BackdropContainer
+  BackdropContainer,
+  MobileNavigationContainer
 } from "./containers";
 import { Routes } from "./constant/routes";
 import { CSSTransition } from "react-transition-group";
@@ -24,11 +25,19 @@ function App() {
     {path: Routes.WORKS, name: 'WorksPage', Component: WorksPage},
     {path: Routes.WORK_DETAILS, name: 'WorkDetails', Component: WorkDetails},
   ];
+  const [mobileNav, setMobileNav] = useState(false);
 
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
-        <TopNavigationContainer themeSwitch={themeSwitch} />
+        <TopNavigationContainer
+            mobileNav={mobileNav}
+            setMobileNav={setMobileNav}
+            themeSwitch={themeSwitch}
+        />
+        <MobileNavigationContainer
+            setMobileNav={setMobileNav}
+        />
         <BackdropContainer>
           <ContactModalContainer />
         </BackdropContainer>

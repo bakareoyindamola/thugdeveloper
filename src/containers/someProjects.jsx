@@ -20,10 +20,8 @@ export default function SomeProjectsContainer({ bestProjects }) {
                             id={project.id}
                             name={project.title}
                             description={project.description}
-                            image={project.cover_image.name}
-                            small_image={project.cover_image.formats?.small?.url}
-                            medium_image={project.cover_image.formats?.medium?.url}
-                            thumbnail_image={project.cover_image.formats?.thumbnail?.name}
+                            image={project?.cover_image.url}
+                            thumbnail_image={project.cover_image.formats?.thumbnail.url}
                             direction={"true"}
                         />
                     } else {
@@ -33,10 +31,8 @@ export default function SomeProjectsContainer({ bestProjects }) {
                             id={project.id}
                             name={project.title}
                             description={project.description}
-                            image={project.cover_image.name}
-                            small_image={project.cover_image.formats?.small?.url}
-                            medium_image={project.cover_image.formats?.medium?.url}
-                            thumbnail_image={project.cover_image.formats?.thumbnail?.name}
+                            image={project?.cover_image.url}
+                            thumbnail_image={project.cover_image.formats?.thumbnail.url}
                         />
                     }
                 })}

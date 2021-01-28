@@ -6,8 +6,9 @@ import gsap from 'gsap';
 
 //Assets
 import { CheckOutSVG } from "./svgs";
+import ImageLoad from "../helpers/imageLoad";
 
-export default function ProjectTemplate({ id, name, description, image, direction, small_image, medium_image }) {
+export default function ProjectTemplate({ id, name, description, image, direction, thumbnail_image }) {
     const containerRef = createRef();
     const intersection = useIntersection(containerRef, {
         root: null,
@@ -35,13 +36,13 @@ export default function ProjectTemplate({ id, name, description, image, directio
         <SomeProjectProject ref={containerRef} direction={direction ? 'row-reverse' : "row"} key={id}>
             <SomeProjects.ImageWrapper className={"fadeIn"}>
                 <SomeProjects.Picture>
-                    {small_image !== undefined && <SomeProjects.ImageSource srcSet={baseUrl+small_image} media="(min-width: 500px)" sizes={"100%"} />}
-                    {medium_image !== undefined && <SomeProjects.ImageSource srcSet={baseUrl+medium_image} media="(min-width: 1000px)" sizes={"100%"} />}
-                    {medium_image !== undefined && <SomeProjects.ImageSource srcSet={image} media="(min-width: 1500px)" sizes={"100%"} />}
-                    {small_image === undefined
-                        ? <SomeProjects.Image width={"100%"} height={"100%"} src={image} alt={name} />
-                        : <SomeProjects.Image width={"100%"} height={"100%"} src={baseUrl+small_image} alt={name} />
-                    }
+                    <ImageLoad
+                        src={`${baseUrl}${image}`}
+                        placeholder={`${baseUrl}${thumbnail_image}`}
+                        alt={name}
+                        width={"100%"}
+                        height={"100%"}
+                    />
                 </SomeProjects.Picture>
             </SomeProjects.ImageWrapper>
             <SomeProjects.ProjectDetails direction={direction ? 'row-reverse' : "row"}>

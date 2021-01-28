@@ -11,7 +11,7 @@ import { useQuery } from "react-query";
 const SomeProjectsContainer = lazy(() => import("./someProjects"))
 
 export default function HomepageContainer() {
-    const { data, isLoading, isError, isSuccess, error } = useQuery("best-two-projects", getWorks);
+    const { data, isLoading, isError, error } = useQuery("best-two-projects", getWorks);
     function filterProjects(project){
         return project.homepage === true;
     }

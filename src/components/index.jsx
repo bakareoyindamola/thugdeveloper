@@ -14,3 +14,5 @@ export { default as TopNavigation } from './topNavigation';
 export { default as ContactModal } from './contactModal';
 export { default as SkeletonLoader } from './skeletonLoader';
 export { default as BackDrop } from './backDrop';
+export { default as ViewLink } from './viewLink';
+export { default as MobileNavigation } from './mobileNavigation';

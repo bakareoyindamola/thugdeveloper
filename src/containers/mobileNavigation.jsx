@@ -21,7 +21,6 @@ export default function MobileNavigationContainer({ setMobileNav }) {
                     </MobileNavigation.List>
                     <MobileNavigation.List className={"mobile_navigation_content_animation"}>
                         <MobileNavigation.Link onClick={() => {
-                            lmaoo();
                             setMobileNav(false);
                             closeMobileNav();
                         }} to={Routes.ABOUT}>

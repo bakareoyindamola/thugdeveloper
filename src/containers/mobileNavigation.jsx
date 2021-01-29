@@ -1,11 +1,13 @@
 import { MobileNavigation } from "../components";
 import { Routes } from "../constant/routes";
 import {closeMobileNav, contactModalOpenAnimation} from "../animations";
+import { useDimension } from "../hooks";
 
 
 export default function MobileNavigationContainer({ setMobileNav }) {
+    const [width] = useDimension("width");
     return (
-        <MobileNavigation className={"mobile_navigation_animation"}>
+        <MobileNavigation className={`mobile_navigation_animation ${width >= 580 && `none`}`}>
             <MobileNavigation.Inner>
                 <MobileNavigation.ListWrapper>
                     <MobileNavigation.List className={"mobile_navigation_content_animation"}>

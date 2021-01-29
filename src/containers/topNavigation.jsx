@@ -40,12 +40,14 @@ export default function TopNavigationContainer({ mobileNav, setMobileNav }) {
                     && <>
                         {mobileNav
                             ? <TopNavigation.NavButton
-                            onClick={closeMobileNavigation}
+                                className={"menu_animation"}
+                                onClick={closeMobileNavigation}
                             >
                                 <TopCancelSVG />
                             </TopNavigation.NavButton>
                             : <TopNavigation.NavButton
-                            onClick={openMobileNavigation}
+                                className={"menu_animation"}
+                                onClick={openMobileNavigation}
                             >
                                 <MenuSVG />
                             </TopNavigation.NavButton>}

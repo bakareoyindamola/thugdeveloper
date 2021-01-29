@@ -11,6 +11,12 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.body };
   transform: translateY(-100vh);
   opacity: 0;
+  pointer-events: none;
+  &.none {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+  }
 `
 
 export const Inner = styled.nav`

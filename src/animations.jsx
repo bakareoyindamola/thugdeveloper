@@ -62,29 +62,40 @@ export const closeContactForm = () => {
 }
 
 export const openMobileNav = () => {
-    tl.to(".mobile_navigation_animation", {
+    tl.to(".menu_animation", {
+            pointerEvents: "none",
+        })
+        .to(".mobile_navigation_animation", {
+            pointerEvents: "auto",
             y: 0,
             opacity: 1,
-            duration: .2,
-        })
+            duration: .1,
+        }, "Start")
         .to(".mobile_navigation_content_animation", {
             opacity: 1,
             y: 0,
             stagger: {
-                amount: .5
+                amount: .3
             }
         })
         .to(".body_animation", {
             overflow: "hidden",
         }, "Start")
+        .to(".menu_animation", {
+            pointerEvents: "auto",
+        })
 }
 
 export const closeMobileNav = () => {
-    tl.to(".mobile_navigation_animation", {
+    tl.to(".menu_animation", {
+            pointerEvents: "none",
+        })
+        .to(".mobile_navigation_animation", {
             y: "-100vh",
             opacity: 0,
-            duration: .3
-        })
+            duration: .1,
+            pointerEvents: "none"
+        }, "Start")
         .to(".mobile_navigation_content_animation", {
             opacity: 0,
             y: 60,
@@ -92,4 +103,7 @@ export const closeMobileNav = () => {
         .to(".body_animation", {
             overflow: "auto",
         }, "Start")
+        .to(".menu_animation", {
+            pointerEvents: "auto",
+        })
 }

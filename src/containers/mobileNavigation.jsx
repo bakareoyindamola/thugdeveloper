@@ -1,4 +1,5 @@
 import { MobileNavigation } from "../components";
+import * as Sentry from "@sentry/react";
 import { Routes } from "../constant/routes";
 import {closeMobileNav, contactModalOpenAnimation} from "../animations";
 import { useDimension } from "../hooks";
@@ -20,6 +21,7 @@ export default function MobileNavigationContainer({ setMobileNav }) {
                     </MobileNavigation.List>
                     <MobileNavigation.List className={"mobile_navigation_content_animation"}>
                         <MobileNavigation.Link onClick={() => {
+                            lmaoo();
                             setMobileNav(false);
                             closeMobileNav();
                         }} to={Routes.ABOUT}>

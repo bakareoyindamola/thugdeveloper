@@ -9,18 +9,19 @@ import { useQuery } from "react-query";
 import { getWorkDetails } from "../services/workServices";
 import truncateString from "../helpers/truncateString";
 import useProgressiveImg from "../hooks/useProgressiveImage";
+import ImageLoad from "../helpers/imageLoad";
+import FeedbackContainer from "./feedback";
 
 //Assets
 import {AndroidSVG, IOSSVG, LinkSVG} from "./svgs";
-import ImageLoad from "../helpers/imageLoad";
 
 export default function WorkDetailsContainer () {
     const { id } = useParams();
     const { data, isLoading, isError, error } = useQuery(['work-details', id], getWorkDetails);
     const lowImage = data&&data.cover_image.formats.thumbnail.url;
     const [src, { blur }] = useProgressiveImg(
-        `${lowImage}`,
-        `${data&&data.cover_image.url}`
+        lowImage,
+        data&&data.cover_image.url
     );
 
     if(isLoading) {
@@ -28,14 +29,15 @@ export default function WorkDetailsContainer () {
     }
 
     if(isError) {
-        console.log(error.response)
-        console.log(error.response.status)
-        console.log(error.response.statusText)
+        // console.log(error.response)
+        // console.log(error.response.status)
+        // console.log(error.response.statusText)
         return <p>Error: {error.message}</p>
     }
 
     return (
         <Layout>
+            <FeedbackContainer />
             <Layout.Inner>
                 <WorkDetails>
                     <WorkDetails.TextWrapper>

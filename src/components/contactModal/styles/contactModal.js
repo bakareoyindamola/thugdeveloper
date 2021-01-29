@@ -98,7 +98,7 @@ export const Input = styled(Field)`
   outline: none;
   border: 1px solid #F2F2F2;
   resize: none;
-  transition: all .2s ease-in-out;
+  transition: border .2s ease-in-out, background-color .2s ease-in-out;
   &::placeholder {
     color: #BDBDBD;
   }
@@ -116,10 +116,8 @@ export const Input = styled(Field)`
 export const ButtonWrapper = styled.div`
   max-width: 127px;
   margin-top: 1.5rem;
-  &.success_modal_text_animation {
-    opacity: 0;
-    transform: translateY(50px);
-  }
+  opacity: 0;
+  transform: translateY(50px);
 `;
 
 export const Footer = styled.footer`

@@ -16,3 +16,4 @@ export { default as SkeletonLoader } from './skeletonLoader';
 export { default as BackDrop } from './backDrop';
 export { default as ViewLink } from './viewLink';
 export { default as MobileNavigation } from './mobileNavigation';
+export { default as Feedback } from './feedback';

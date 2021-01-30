@@ -63,5 +63,5 @@ ContactModal.CancelWrapper = function ContactModalCancelWrapper ({ children, ...
 }
 
 ContactModal.Link = function ContactModalLink ({ children, ...restProps }) {
-    return <Link {...restProps} target={"_blank"}>{children}</Link>
+    return <Link {...restProps} rel={"noopener"} target={"_blank"}>{children}</Link>
 }

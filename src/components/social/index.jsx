@@ -21,7 +21,7 @@ Social.HeaderText = function SocialHeaderText({ children, ...restProps }) {
 }
 
 Social.Pane = function SocialPane({ children, ...restProps }) {
-    return <Pane {...restProps}>{children}</Pane>
+    return <Pane {...restProps} rel={"noopener"} target={"_blank"}>{children}</Pane>
 }
 
 Social.TextWrapper = function SocialTextWrapper({ children, ...restProps }) {

@@ -173,13 +173,13 @@ export default function ContactModalContainer({ setContactModal }) {
                         Need to be more social? you can still reach out to me on...
                     </ContactModal.Paragraph>
                     <ContactModal.Pane className={"footer-links-wrapper"}>
-                        <ContactModal.Link href={"https://twitter.com/theonlybakare"}>
+                        <ContactModal.Link href={"https://twitter.com/theonlybakare"} aria-label={"Twitter"}>
                             <TwitterIconSVG />
                         </ContactModal.Link>
-                        <ContactModal.Link href={"https://www.instagram.com/thugdeveloper/"}>
+                        <ContactModal.Link href={"https://www.instagram.com/thugdeveloper/"} aria-label={"Instagram"}>
                             <InstagramIconSVG />
                         </ContactModal.Link>
-                        <ContactModal.Link href={"https://github.com/bakareoyindamola"}>
+                        <ContactModal.Link href={"https://github.com/bakareoyindamola"} aria-label={"Github"}>
                             <GithubIconSVG />
                         </ContactModal.Link>
                     </ContactModal.Pane>

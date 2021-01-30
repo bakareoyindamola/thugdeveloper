@@ -29,10 +29,10 @@ export default function FeedbackContainer ({ title }) {
     return (
         <>
             {isOpen
-                ? <Feedback.IconWrapper onClick={feedbackClose}>
+                ? <Feedback.IconWrapper aria-label={"open feedback form"} onClick={feedbackClose}>
                        <FeedbackCancelSVG />
                     </Feedback.IconWrapper>
-                : <Feedback.IconWrapper onClick={feedbackOpen}>
+                : <Feedback.IconWrapper aria-label={"close feedback form"} onClick={feedbackOpen}>
                         <FeedbackSVG />
                     </Feedback.IconWrapper>}
             <Feedback className={"feedback_wrapper_animation"}>
@@ -68,11 +68,11 @@ export default function FeedbackContainer ({ title }) {
                               dirty
                           }) => (
                             <Feedback.Form>
-                                <Feedback.Label htmlFor={"name"} className={"feedback_content_animation"}>
+                                <Feedback.Label htmlFor={"feedback-name"} className={"feedback_content_animation"}>
                                     <Feedback.Input
                                         aria-label={"name"}
                                         name={"name"}
-                                        id={"name"}
+                                        id={"feedback-name"}
                                         autoComplete={"name"}
                                         placeholder={"Name"}
                                     />

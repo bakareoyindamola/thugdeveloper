@@ -113,7 +113,7 @@ WorkDetails.InfoText = function WorkDetailsInfoText ({ children, ...restProps })
 }
 
 WorkDetails.Link = function WorkDetailsLink ({ children, ...restProps }) {
-    return <Link {...restProps} target={"_blank"}>{children}</Link>
+    return <Link {...restProps} rel={"noopener"} target={"_blank"}>{children}</Link>
 }
 
 WorkDetails.ContributorsWrapper = function WorkDetailsContributorsWrapper ({ children, ...restProps }) {

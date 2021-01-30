@@ -5,7 +5,7 @@ import { GithubSVG } from "./svgs";
 
 export default function GithubContainer({ ...restProps }) {
     return (
-        <Github {...restProps} target={"_blank"}>
+        <Github {...restProps} aria-label={"github"} rel={"noopener"} target={"_blank"}>
             <GithubSVG />
             Github
         </Github>

@@ -194,7 +194,7 @@ export const InfoText = styled.p`
   line-height: 1.5rem;
   margin-bottom: .68rem;
   &.header {
-    color: #828282;
+    color: #4F4F4F;
     text-transform: lowercase;
   }
   &.lead-text {

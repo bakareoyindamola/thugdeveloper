@@ -5,5 +5,5 @@ export default function ViewLink ({ children, ...restProps }) {
 }
 
 ViewLink.Link = function ViewLinkLink ({ children, ...restProps }) {
-    return <Link {...restProps} rel={"nofollow"} target={"_blank"}>{children}</Link>
+    return <Link {...restProps} rel={"noopener"} target={"_blank"}>{children}</Link>
 }

@@ -17,17 +17,6 @@ export default function WorksContainer() {
         <>
             <MetaTags>
                 <ReactTitle title="Works"/>
-                <meta property="og:url" content={currentLink} />
-                <meta property="og:type" content="Website" />
-                <meta property="og:title" content={"ThugDeveloper Works"} />
-                <meta property="og:description" content={"I am very passionate about web accessibility, web performance, UI effects and creating friendly and dynamic user experiences."} />
-                {/*<meta property="og:image" content={data.showcase_images.formats.large.url} />*/}
-                <meta property="og:image:width" content="1200" />
-                <meta property="og:image:height" content="627" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@theonlybakare" />
-                <meta name="twitter:creator" content="@theonlybakare" />
-                {/*<meta name="twitter:image " content={data.showcase_images.formats.large.url} />*/}
             </MetaTags>
             <Layout>
                 <Layout.Inner>

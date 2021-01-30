@@ -5,7 +5,7 @@ export const lightTheme = {
     skillCard: '#FCFCFC',
     card: '#FCFCFC',
     line: "#E0E0E0",
-    footerText: "#828282",
+    footerText: "#4F4F4F",
     githubSvg: "#333333",
     number: "#4F4F4F",
     workDetails: "#F2F2F2",

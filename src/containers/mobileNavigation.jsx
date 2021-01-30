@@ -1,5 +1,4 @@
 import { MobileNavigation } from "../components";
-import * as Sentry from "@sentry/react";
 import { Routes } from "../constant/routes";
 import {closeMobileNav, contactModalOpenAnimation} from "../animations";
 import { useDimension } from "../hooks";

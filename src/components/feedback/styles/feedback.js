@@ -3,7 +3,7 @@ import { Form as FormikForm, Field } from 'formik';
 
 export const Container = styled.div`
   position: fixed;
-  right: 2rem;
+  right: 1.2rem;
   bottom: 6.5rem;
   max-width: 446px;
   width: 100%;
@@ -14,6 +14,10 @@ export const Container = styled.div`
   border-radius: 24px;
   background-color: white;
   overflow-y: scroll;
+  display: none;
+  opacity: 0;
+  transform: translateY(60px);
+  pointer-events: none;
 `;
 
 export const Inner = styled.div`
@@ -24,6 +28,8 @@ export const HeaderText = styled.h4`
   font-size: 2.5rem;
   line-height: 2.875rem;
   margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(60px);
 `;
 
 export const Form = styled(FormikForm)``;
@@ -32,6 +38,8 @@ export const Label = styled.label`
   display: block;
   margin: 2rem 0 1rem;
   width: 100%;
+  opacity: 0;
+  transform: translateY(60px);
   &:last-of-type {
     margin: 0;
   }
@@ -66,11 +74,14 @@ export const Input = styled(Field)`
 export const ButtonWrapper = styled.div`
   max-width: 127px;
   margin-top: 1.5rem;
+  opacity: 0;
+  transform: translateY(60px);
 `;
 
 export const IconWrapper = styled.button`
   position: fixed;
-  right: 2rem;
+  z-index: 997;
+  right: 1.2rem;
   bottom: 2rem;
   width: 65px;
   height: 58px;

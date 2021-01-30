@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import { closeContactModal } from "../animations";
 import { useDimension } from "../hooks";
 import * as yup from 'yup';
-import { contactMe } from "../services/contactServices";
+import { contactMe } from "../services/contactService";
 import { closeContactForm } from "../animations";
 
 //Assets

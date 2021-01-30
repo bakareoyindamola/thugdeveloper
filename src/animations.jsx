@@ -107,3 +107,35 @@ export const closeMobileNav = () => {
             pointerEvents: "auto",
         })
 }
+
+export const openFeedback = () => {
+    tl.to(".feedback_wrapper_animation", {
+            display: "block",
+            opacity: 1,
+            y: 0,
+            pointerEvents: "all",
+            duration: .2,
+        })
+        .to(".feedback_content_animation", {
+            opacity: 1,
+            y: 0,
+            duration: .3,
+            stagger: {
+                amount: .3
+            }
+        }, "Start")
+}
+
+export const closeFeedback = () => {
+    tl.to(".feedback_wrapper_animation", {
+            display: "none",
+            opacity: 0,
+            y: 60,
+            pointerEvents: "none",
+            duration: .1,
+        })
+        .to(".feedback_content_animation", {
+            opacity: 0,
+            y: 60,
+        })
+}

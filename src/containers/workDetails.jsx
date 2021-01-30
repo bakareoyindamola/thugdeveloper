@@ -37,7 +37,7 @@ export default function WorkDetailsContainer () {
 
     return (
         <Layout>
-            <FeedbackContainer />
+            <FeedbackContainer title={data.title}/>
             <Layout.Inner>
                 <WorkDetails>
                     <WorkDetails.TextWrapper>
@@ -119,7 +119,7 @@ export default function WorkDetailsContainer () {
             </WorkDetails.GalleryContainer>
             <Layout.Inner>
                 <Layout.Pane>
-                    {data.categories[0].name === "Web"
+                    {data.category.name === "Web"
                         && <ViewLink category={"web"}>
                                 <ViewLink.Link href={data.link}>
                                     <LinkSVG />
@@ -127,7 +127,7 @@ export default function WorkDetailsContainer () {
                                 </ViewLink.Link>
                             </ViewLink>
                     }
-                    {data.categories[0].name === "Mobile"
+                    {data.category.name === "Mobile"
                         && <ViewLink category={"mobile"}>
                                 <ViewLink.Link href={data.android_link}>>
                                     <AndroidSVG />
@@ -139,7 +139,7 @@ export default function WorkDetailsContainer () {
                                 </ViewLink.Link>
                             </ViewLink>
                     }
-                    {data.categories[0].name === "Web and Mobile"
+                    {data.category.name === "Web and Mobile"
                         && <ViewLink category={"web_and_mobile"}>
                                 <ViewLink.Link href={data.android_link}>
                                     <AndroidSVG />

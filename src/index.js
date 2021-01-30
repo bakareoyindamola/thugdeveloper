@@ -8,14 +8,14 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
 Sentry.init({
-    dsn: "https://6d10a9b19525489e8473db5ef07d2dab@o513245.ingest.sentry.io/5614768",
+    dsn: process.env.REACT_APP_SENTRY_DSN,
     integrations: [
         new Integrations.BrowserTracing(),
     ],
 
     // We recommend adjusting this value in production, or using tracesSampler
     // for finer control
-    tracesSampleRate: 1.0,
+    // tracesSampleRate: 1.0,
 });
 
 const queryClient = new QueryClient();

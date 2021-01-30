@@ -26,7 +26,8 @@ export const Paragraph = styled.p`
   &.center {
     text-align: center;
   }
-  &.fadeIn {
+  &.fadeIn,
+  &.feedback_content_animation {
     opacity: 0;
     transform: translateY(60px);
   }

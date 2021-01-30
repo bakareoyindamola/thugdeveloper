@@ -3,6 +3,7 @@ import truncateString from '../helpers/truncateString';
 import {useQuery} from "react-query";
 import { getWorks } from "../services/workServices";
 import WorkSkeleton from "./workSkeleton";
+import ImageLoad from "../helpers/imageLoad";
 
 export default function WorkContentContainer() {
     const { data, isLoading } = useQuery("works", getWorks);
@@ -19,7 +20,7 @@ export default function WorkContentContainer() {
                     num++
                     return <WorkContent.LinkWrapper key={work.id} to={`/work/${work.id}`}>
                         <WorkContent.Inner color={"true"} direction={"true"}>
-                            <WorkContent.ProjectWrapper>
+                            <WorkContent.ProjectWrapper direction={"true"}>
                                 <WorkContent.ProjectName>{work.title}</WorkContent.ProjectName>
                                 <WorkContent.ProjectDetails>
                                     {truncateString(work.description, 250)}
@@ -36,8 +37,13 @@ export default function WorkContentContainer() {
                             </WorkContent.ProjectWrapper>
                             <WorkContent.ImageWrapper>
                                 <WorkContent.Picture>
-                                    <WorkContent.ImageSource srcSet={""} />
-                                    <WorkContent.Image width={"100%"} height={"100%"} src={work.cover_image.name} alt={work.title} />
+                                    <ImageLoad
+                                        src={work.cover_image.url}
+                                        placeholder={work.cover_image.formats.thumbnail.url}
+                                        alt={work.title}
+                                        width={"100%"}
+                                        height={"100%"}
+                                    />
                                 </WorkContent.Picture>
                             </WorkContent.ImageWrapper>
                         </WorkContent.Inner>
@@ -63,8 +69,13 @@ export default function WorkContentContainer() {
                             </WorkContent.ProjectWrapper>
                             <WorkContent.ImageWrapper>
                                 <WorkContent.Picture>
-                                    <WorkContent.ImageSource srcSet={""} />
-                                    <WorkContent.Image width={"100%"} height={"100%"} src={work.cover_image.name} alt={work.title} />
+                                    <ImageLoad
+                                        src={work.cover_image.url}
+                                        placeholder={work.cover_image.formats.thumbnail.url}
+                                        alt={work.title}
+                                        width={"100%"}
+                                        height={"100%"}
+                                    />
                                 </WorkContent.Picture>
                             </WorkContent.ImageWrapper>
                         </WorkContent.Inner>

@@ -18,8 +18,8 @@ export const Inner = styled.article`
   border-radius: ${variables.bannerRadius};
   padding: 3.625rem 3.5rem;
   background-color: #5C3737;
-  ${({ direction }) => direction && `flex-direction: row-reverse;`}
-  ${({ color }) => color && `background-color: #074E65;`}
+  ${({ direction }) => direction && `flex-direction: row-reverse;`};
+  ${({ color }) => color && `background-color: #074E65;`};
   @media screen and (max-width: 1225px) {
     padding: 1.5rem;
   }
@@ -32,8 +32,11 @@ export const Inner = styled.article`
 export const ProjectWrapper = styled.div`
   max-width: 460px;
   width: 100%;
+  margin-right: 2.5rem;
+  ${({ direction }) => direction && `margin-left: 2.5rem;`};
   @media screen and (max-width: 960px) {
     max-width: 100%;
+    margin: 0;
   }
 `;
 
@@ -47,8 +50,7 @@ export const ProjectName = styled.h4`
 export const ProjectDetails = styled.p`
   font-size: 1rem;
   line-height: 1.5rem;
-  //color: ${({ theme }) => theme.workDetails };
-  color: #F2F2F2;
+  color: ${({ theme }) => theme.workDetails };
   margin-bottom: 1.5rem;
 `;
 
@@ -87,7 +89,14 @@ export const ImageWrapper = styled.div`
   }
 `;
 
-export const Picture = styled.picture``;
+export const Picture = styled.picture`
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: ${variables.bannerRadius};
+  }
+`;
 
 export const ImageSource = styled.source``;
 

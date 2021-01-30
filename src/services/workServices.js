@@ -9,6 +9,9 @@ export const getWorksLength = () => {
 }
 
 export const getWorkDetails = ({ queryKey }) => {
-    const [key, id] = queryKey;
+    const [_key, id] = queryKey;
+    if(_key === undefined) {
+        return _key;
+    }
     return http.get(`/works/${id}`);
 }

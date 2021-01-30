@@ -38,7 +38,7 @@ export default function WorkContentContainer() {
                             <WorkContent.ImageWrapper>
                                 <WorkContent.Picture>
                                     <ImageLoad
-                                        src={work.cover_image.url}
+                                        src={work.cover_image.formats.large.url}
                                         placeholder={work.cover_image.formats.thumbnail.url}
                                         alt={work.title}
                                         width={"100%"}
@@ -70,7 +70,7 @@ export default function WorkContentContainer() {
                             <WorkContent.ImageWrapper>
                                 <WorkContent.Picture>
                                     <ImageLoad
-                                        src={work.cover_image.url}
+                                        src={work.cover_image.formats.large.url}
                                         placeholder={work.cover_image.formats.thumbnail.url}
                                         alt={work.title}
                                         width={"100%"}

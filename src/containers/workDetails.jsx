@@ -11,12 +11,14 @@ import truncateString from "../helpers/truncateString";
 import useProgressiveImg from "../hooks/useProgressiveImage";
 import ImageLoad from "../helpers/imageLoad";
 import FeedbackContainer from "./feedback";
+import MetaTags from 'react-meta-tags';
 
 //Assets
 import {AndroidSVG, IOSSVG, LinkSVG} from "./svgs";
 
 export default function WorkDetailsContainer () {
     const { id } = useParams();
+    const currentLink = window.location.href;
     const { data, isLoading, isError, error } = useQuery(['work-details', id], getWorkDetails);
     const lowImage = data&&data.cover_image.formats.thumbnail.url;
     const [src, { blur }] = useProgressiveImg(
@@ -36,7 +38,22 @@ export default function WorkDetailsContainer () {
     }
 
     return (
-        <Layout>
+        <>
+            <MetaTags>
+                <title>{data.title}</title>
+                <meta property="og:url" content={currentLink} />
+                <meta property="og:type" content="Website" />
+                <meta property="og:title" content={data.title} />
+                <meta property="og:description" content={truncateString(data&&data.description, 100)} />
+                <meta property="og:image" content={data&&data.cover_image.formats.large.url} />
+                <meta property="og:image:width" content={data&&data.cover_image.formats.large.width} />
+                <meta property="og:image:height" content={data&&data.cover_image.formats.large.height} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="@theonlybakare" />
+                <meta name="twitter:creator" content="@theonlybakare" />
+                <meta name="twitter:image " content={data&&data.cover_image.formats.large.url} />
+            </MetaTags>
+            <Layout>
             <FeedbackContainer title={data.title}/>
             <Layout.Inner>
                 <WorkDetails>
@@ -105,7 +122,7 @@ export default function WorkDetailsContainer () {
                             <WorkDetails.GalleryImageWrapper key={image.id}>
                                 <WorkDetails.GalleryPicture>
                                     <ImageLoad
-                                        src={image.url}
+                                        src={image.formats.large.url}
                                         placeholder={image.formats.thumbnail.url}
                                         alt={data.title}
                                         width={"100%"}
@@ -161,5 +178,6 @@ export default function WorkDetailsContainer () {
                 <FooterContainer />
             </Layout.Inner>
         </Layout>
+        </>
     )
 }

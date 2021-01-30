@@ -129,9 +129,8 @@ export default function ContactModalContainer({ setContactModal }) {
                                                 className={(touched.skill&&errors.skill) && `error`}
                                             >
                                                 <option value="" disabled defaultValue hidden>What do you need?</option>
-                                                <option value="red">Red</option>
-                                                <option value="green">Green</option>
-                                                <option value="blue">Blue</option>
+                                                <option value="web">Web Development</option>
+                                                <option value="mobile">Mobile Development</option>
                                             </ContactModal.Input>
                                             {
                                                 touched.skill && errors.skill &&

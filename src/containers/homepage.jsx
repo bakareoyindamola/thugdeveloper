@@ -7,6 +7,7 @@ import InspiredContainer from "./inspired";
 import FooterContainer from "./footer";
 import { getWorks } from "../services/workServices";
 import { useQuery } from "react-query";
+import MetaTags from 'react-meta-tags';
 
 const SomeProjectsContainer = lazy(() => import("./someProjects"))
 
@@ -26,7 +27,22 @@ export default function HomepageContainer() {
     }
 
     return (
-        <Layout className={"homepage homepage_layout_animate"}>
+        <>
+            <MetaTags>
+                <title>ThugDeveloper Portfolio</title>
+                <meta property="og:url" content="https://thugdeveloper.herokuapp.com/" />
+                <meta property="og:type" content="Website" />
+                <meta property="og:title" content="Bakare Emmanuel | Frontend Developer" />
+                <meta property="og:description" content="Hire Me." />
+                {/*<meta property="og:image" content="https://res.cloudinary.com.png" />*/}
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="627" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="@theonlybakare" />
+                <meta name="twitter:creator" content="@theonlybakare" />
+                {/*<meta name="twitter:image " content="https://res.cloudinary.com.png" />*/}
+            </MetaTags>
+            <Layout className={"homepage homepage_layout_animate"}>
             <Layout.Inner>
                 <HomepageBannerContainer />
                 <Layout.Pane>
@@ -42,5 +58,6 @@ export default function HomepageContainer() {
                 <FooterContainer />
             </Layout.Inner>
         </Layout>
+        </>
     )
 }

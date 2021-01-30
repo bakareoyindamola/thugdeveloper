@@ -5,7 +5,7 @@ import { Integrations } from "@sentry/tracing";
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
+// import { ReactQueryDevtools } from 'react-query/devtools';
 
 Sentry.init({
     dsn: process.env.REACT_APP_SENTRY_DSN,
@@ -26,7 +26,7 @@ ReactDOM.render(
               <Sentry.ErrorBoundary fallback={"An error has occurred"}>
                 <App />
               </Sentry.ErrorBoundary>
-              <ReactQueryDevtools initialIsOpen={false} />
+              {/*<ReactQueryDevtools initialIsOpen={false} />*/}
           </QueryClientProvider>
       </Router>
   </React.StrictMode>,

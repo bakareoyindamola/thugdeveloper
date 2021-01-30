@@ -7,7 +7,7 @@ import InspiredContainer from "./inspired";
 import FooterContainer from "./footer";
 import { getWorks } from "../services/workServices";
 import { useQuery } from "react-query";
-import MetaTags from 'react-meta-tags';
+import MetaTags, {ReactTitle} from 'react-meta-tags';
 
 const SomeProjectsContainer = lazy(() => import("./someProjects"))
 
@@ -29,11 +29,11 @@ export default function HomepageContainer() {
     return (
         <>
             <MetaTags>
-                <title>ThugDeveloper Portfolio</title>
+                <ReactTitle title="ThugDeveloper Portfolio"/>
                 <meta property="og:url" content="https://thugdeveloper.herokuapp.com/" />
                 <meta property="og:type" content="Website" />
                 <meta property="og:title" content="Bakare Emmanuel | Frontend Developer" />
-                <meta property="og:description" content="Hire Me." />
+                <meta property="og:description" content="I am very passionate about web accessibility, web performance, UI effects and creating friendly and dynamic user experiences. Hire Me." />
                 {/*<meta property="og:image" content="https://res.cloudinary.com.png" />*/}
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="627" />

@@ -7,8 +7,7 @@ import FooterContainer from "./footer";
 import WorkContentContainer from "./workContent";
 import { useQuery } from "react-query";
 import { getWorksLength } from "../services/workServices";
-import MetaTags from 'react-meta-tags';
-import truncateString from "../helpers/truncateString";
+import MetaTags, {ReactTitle} from 'react-meta-tags';
 
 export default function WorksContainer() {
     const { data, isSuccess } = useQuery("work-length", getWorksLength);
@@ -17,7 +16,7 @@ export default function WorksContainer() {
     return (
         <>
             <MetaTags>
-                <title>Works</title>
+                <ReactTitle title="Works"/>
                 <meta property="og:url" content={currentLink} />
                 <meta property="og:type" content="Website" />
                 <meta property="og:title" content={"ThugDeveloper Works"} />

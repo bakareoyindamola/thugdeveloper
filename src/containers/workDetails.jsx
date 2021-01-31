@@ -11,7 +11,7 @@ import truncateString from "../helpers/truncateString";
 import useProgressiveImg from "../hooks/useProgressiveImage";
 import ImageLoad from "../helpers/imageLoad";
 import FeedbackContainer from "./feedback";
-import MetaTags from 'react-meta-tags';
+import { Helmet } from "react-helmet";
 
 //Assets
 import {AndroidSVG, IOSSVG, LinkSVG} from "./svgs";
@@ -39,7 +39,7 @@ export default function WorkDetailsContainer () {
 
     return (
         <>
-            <MetaTags>
+            <Helmet>
                 <title>{data.title}</title>
                 <meta property="og:url" content={currentLink} />
                 <meta property="og:type" content="Website" />
@@ -52,7 +52,7 @@ export default function WorkDetailsContainer () {
                 <meta name="twitter:site" content="@theonlybakare" />
                 <meta name="twitter:creator" content="@theonlybakare" />
                 <meta name="twitter:image " content={data&&data.cover_image.formats.large.url} />
-            </MetaTags>
+            </Helmet>
             <Layout>
             <FeedbackContainer title={data.title}/>
             <Layout.Inner>

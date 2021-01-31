@@ -7,7 +7,7 @@ import FooterContainer from "./footer";
 import WorkContentContainer from "./workContent";
 import { useQuery } from "react-query";
 import { getWorksLength } from "../services/workServices";
-import MetaTags, {ReactTitle} from 'react-meta-tags';
+import { Helmet } from "react-helmet";
 
 export default function WorksContainer() {
     const { data, isSuccess } = useQuery("work-length", getWorksLength);
@@ -15,9 +15,20 @@ export default function WorksContainer() {
 
     return (
         <>
-            <MetaTags>
-                <ReactTitle title="Works"/>
-            </MetaTags>
+            <Helmet>
+                <title>Works</title>
+                <meta property="og:url" content={currentLink} />
+                <meta property="og:type" content="Website" />
+                <meta property="og:title" content="ThugDeveloper Works" />
+                <meta property="og:description" content="I am very passionate about web accessibility, web performance, UI animations and creating friendly and dynamic user experiences." />
+                {/*<meta property="og:image" content="https://" />*/}
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="627" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="@theonlybakare" />
+                <meta name="twitter:creator" content="@theonlybakare" />
+                {/*<meta name="twitter:image " content="https://" />*/}
+            </Helmet>
             <Layout>
                 <Layout.Inner>
                     <WorkIntro>

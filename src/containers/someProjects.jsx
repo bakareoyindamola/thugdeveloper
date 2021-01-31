@@ -20,7 +20,7 @@ export default function SomeProjectsContainer({ bestProjects }) {
                             id={project.id}
                             name={project.title}
                             description={project.description}
-                            image={project?.cover_image.url}
+                            image={project?.cover_image.formats.large.url}
                             thumbnail_image={project.cover_image.formats?.thumbnail.url}
                             direction={"true"}
                         />
@@ -31,7 +31,7 @@ export default function SomeProjectsContainer({ bestProjects }) {
                             id={project.id}
                             name={project.title}
                             description={project.description}
-                            image={project?.cover_image.url}
+                            image={project?.cover_image.formats.large.url}
                             thumbnail_image={project.cover_image.formats?.thumbnail.url}
                         />
                     }

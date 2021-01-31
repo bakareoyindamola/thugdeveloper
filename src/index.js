@@ -20,15 +20,13 @@ Sentry.init({
 
 const queryClient = new QueryClient();
 ReactDOM.render(
-  <React.StrictMode>
-      <Router>
-          <QueryClientProvider client={queryClient}>
-              <Sentry.ErrorBoundary fallback={"An error has occurred"}>
-                <App />
-              </Sentry.ErrorBoundary>
-              {/*<ReactQueryDevtools initialIsOpen={false} />*/}
-          </QueryClientProvider>
-      </Router>
-  </React.StrictMode>,
+  <Router>
+      <QueryClientProvider client={queryClient}>
+          <Sentry.ErrorBoundary fallback={"An error has occurred"}>
+            <App />
+          </Sentry.ErrorBoundary>
+          {/*<ReactQueryDevtools initialIsOpen={false} />*/}
+      </QueryClientProvider>
+  </Router>,
   document.getElementById('root')
 );

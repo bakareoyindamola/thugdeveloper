@@ -9,7 +9,7 @@ export default function SocialContainer() {
     const intersection = useIntersection(containerRef, {
         root: null,
         rootMargin: "0px",
-        threshold: .5
+        threshold: .3
     });
     const fadeIn = (element, element2) => {
         gsap.to(element, {
@@ -28,7 +28,7 @@ export default function SocialContainer() {
     };
 
     //checking to see if the viewport is visible to the user
-    intersection && intersection.intersectionRatio > .5 && fadeIn(".social-card-animate", ".social-card-content-animate");
+    intersection && intersection.intersectionRatio > .3 && fadeIn(".social-card-animate", ".social-card-content-animate");
 
     return(
         <Social ref={containerRef} className="social-card-animate">

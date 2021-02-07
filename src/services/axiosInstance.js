@@ -1,7 +1,6 @@
 import axios from "axios";
 
 axios.defaults.baseURL = process.env.REACT_APP_PORTFOLIO_API_BASE_URL;
-console.log(axios.defaults.baseURL)
 
 const handleResponse = ({ data }) => data;
 

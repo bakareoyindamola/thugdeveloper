@@ -13,8 +13,7 @@ export default function HomepageBannerContainer() {
     const [width] = useDimension("width");
 
     const tl = gsap.timeline();
-    //Animations
-    const animations = () => {
+    useEffect(() => {
         //Image Animation
         gsap.to(".homepage_layout_animate", 0, {css: {visibility: "visible"}})
         tl.from(".banner_image_wrapper_animate", {y: 600, duration: 1.2, ease: Power3.easeOut}, "Start")
@@ -31,10 +30,7 @@ export default function HomepageBannerContainer() {
                 amount: 1
             },
         }, "Start")
-    }
-    useEffect(() => {
-        animations()
-    }, [])
+    }, [tl, gsap])
 
     return (
       <HomepageBanner>

@@ -30,7 +30,7 @@ export default function HomepageBannerContainer() {
                 amount: 1
             },
         }, "Start")
-    }, [tl, gsap])
+    }, [tl])
 
     return (
       <HomepageBanner>

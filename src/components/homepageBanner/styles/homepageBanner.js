@@ -26,7 +26,7 @@ export const Inner = styled.section`
 export const Pane = styled.div`
   max-width: 541px;
   width: 100%;
-  margin: 0 4rem 0 2.25rem;
+  margin: 0 4rem 0 0;
   @media screen and (max-width: 1375px) {
     margin: 0 3rem 0 0;
   }

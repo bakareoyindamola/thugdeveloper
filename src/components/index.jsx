@@ -17,3 +17,6 @@ export { default as BackDrop } from './backDrop';
 export { default as ViewLink } from './viewLink';
 export { default as MobileNavigation } from './mobileNavigation';
 export { default as Feedback } from './feedback';
+export { default as MiniBox } from './miniBox';
+export { default as AboutBanner } from './aboutBanner';
+export { default as LogoLoader } from './logoLoader';

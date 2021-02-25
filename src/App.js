@@ -13,9 +13,10 @@ import {
 import { Routes } from "./constant/routes";
 import { CSSTransition } from "react-transition-group";
 
-const Homepage = lazy(() => import("./containers/homepage"));
-const WorksPage = lazy(() => import("./containers/works"));
-const WorkDetails = lazy(() => import("./containers/workDetails"));
+const Homepage = lazy(() => import("./pages/homepage"));
+const WorksPage = lazy(() => import("./pages/works"));
+const WorkDetails = lazy(() => import("./pages/workDetails"));
+const AboutPage = lazy(() => import("./pages/about"));
 
 function App() {
   const [theme, themeSwitch] = useDarkMode();
@@ -24,6 +25,7 @@ function App() {
     {path: Routes.HOME, name: 'Home', Component: Homepage},
     {path: Routes.WORKS, name: 'WorksPage', Component: WorksPage},
     {path: Routes.WORK_DETAILS, name: 'WorkDetails', Component: WorkDetails},
+    {path: Routes.ABOUT, name: 'AboutPage', Component: AboutPage},
   ];
   const [mobileNav, setMobileNav] = useState(false);
 

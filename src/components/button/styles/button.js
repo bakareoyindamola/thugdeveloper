@@ -3,6 +3,7 @@ import styled from 'styled-components/macro';
 export const Container = styled.button`
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: .937rem 1.5rem;
   width: 100%;
   background: linear-gradient(97.59deg, #FFC876 -5.99%, #FF008A 134.55%);

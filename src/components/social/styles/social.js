@@ -18,7 +18,8 @@ export const Wrapper = styled.div`
   @media screen and (max-width: 950px) {
     grid-column-gap: 2rem;
   }
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 540px) {
+    margin: 1.5rem auto 0;
     grid-template-columns: 100%;
     grid-row-gap: 1rem;
   }
@@ -40,6 +41,13 @@ export const Pane = styled.a`
   ${({ social }) => social === "instagram" && `background: linear-gradient(97.59deg, #FFC876 -5.99%, #FF008A 134.55%);`};
   svg {
     max-width: 100%;
+  }
+  @media screen and (max-width: 540px) {
+    height: 128px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 

@@ -32,6 +32,10 @@ export const CardsWrapper = styled.div`
     max-width: 100%;
     grid-row-gap: 1.5rem;
   }
+  @media screen and (max-width: 540px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 1.5rem;
+  }
 `;
 
 export const Card = styled.div`

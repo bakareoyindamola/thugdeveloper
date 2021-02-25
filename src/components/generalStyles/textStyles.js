@@ -17,12 +17,20 @@ export const HeaderText = styled.h4`
     opacity: 0;
     transform: translateY(60px);
   }
+  @media screen and (max-width: 540px) {
+    font-size: 2rem;
+    line-height: 2.31rem;
+  }
 `;
 
 export const Paragraph = styled.p`
   font-weight: normal;
   font-size: 1rem;
   line-height: 1.5rem;
+  @media screen and (max-width: 540px) {
+    font-size: .875rem;
+    line-height: 1.5rem;
+  }
   &.center {
     text-align: center;
   }

@@ -3,7 +3,9 @@ import { TopNavigation } from "../components";
 import { Routes } from "../constant/routes";
 import { contactModalOpenAnimation, openMobileNav, closeMobileNav } from "../animations";
 import { useDimension } from "../hooks";
-import { MenuSVG, TopCancelSVG } from "./svgs";
+
+//Assets
+import { LogoSVG, MenuSVG, TopCancelSVG } from "./svgs";
 
 export default function TopNavigationContainer({ mobileNav, setMobileNav }) {
     const [navbar, setNavbar] = useState(false);
@@ -32,8 +34,8 @@ export default function TopNavigationContainer({ mobileNav, setMobileNav }) {
         <TopNavigation className={ navbar ? `active` : null }>
             <TopNavigation.Inner>
                 <TopNavigation.Pane>
-                    <TopNavigation.Link onClick={closeMobileNavigation} to={Routes.HOME}>
-                        Logo
+                    <TopNavigation.Link aria-label={"logo"} onClick={closeMobileNavigation} to={Routes.HOME}>
+                        <LogoSVG />
                     </TopNavigation.Link>
                 </TopNavigation.Pane>
                 {width < 580
@@ -65,8 +67,9 @@ export default function TopNavigationContainer({ mobileNav, setMobileNav }) {
                         </TopNavigation.NavLink>
                     </TopNavigation.List>
                     <TopNavigation.List>
-                        <TopNavigation.NavLink to={Routes.CERTIFICATION}>
-                            Certification
+                        {/*//TODO: Add a downloadable link for resume here*/}
+                        <TopNavigation.NavLink to={'/'}>
+                            Resume
                         </TopNavigation.NavLink>
                     </TopNavigation.List>
                     <TopNavigation.List onClick={contactModalOpenAnimation}>

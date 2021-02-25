@@ -30,7 +30,7 @@ export default function HomepageBannerContainer() {
                 amount: 1
             },
         }, "Start")
-    }, [tl])
+    }, [])
 
     return (
       <HomepageBanner>
@@ -51,11 +51,6 @@ export default function HomepageBannerContainer() {
                       className={"homepage_banner_text_animation"}
                   >
                       I don't just sell websites, I create websites that SELL.
-                  </HomepageBanner.Paragraph>
-                  <HomepageBanner.Paragraph
-                      className={"homepage_banner_text_animation"}
-                  >
-                      Ma fe jor pami.
                   </HomepageBanner.Paragraph>
               </HomepageBanner.Pane>
               {width >= 750 && (

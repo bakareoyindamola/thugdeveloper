@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Layout } from "../components";
+import LogoLoaderContainer from "./logoLoader";
 import HomepageBannerContainer from "./homepageBanner";
 import HomepageSkillsContainer from "./homepageSkills";
 import SocialContainer from "./social";
@@ -20,8 +21,9 @@ export default function HomepageContainer() {
     const bestTwo = data && data.filter( project => filterProjects(project));
 
     if (isLoading) {
-        return <span>Loading...</span>
+        return <LogoLoaderContainer />
     }
+
     if (isError) {
         return <span>Error: {error.message}</span>
     }

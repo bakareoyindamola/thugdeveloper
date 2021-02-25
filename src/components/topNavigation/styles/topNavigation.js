@@ -22,12 +22,15 @@ export const Inner = styled.div`
   justify-content: space-between;
   max-width: 1440px;
   margin: auto;
-  padding: 3.5rem 6.5rem 2rem 6.623rem;
+  padding: 2rem 6.5rem 2rem 6.623rem;
   @media screen and (max-width: 1300px) {
-    padding: 3.5rem 4rem 2rem;
+    padding: 2rem 4rem;
   }
   @media screen and (max-width: 1050px) {
-    padding: 3.5rem 2rem 2rem;
+    padding: 2rem 2rem;
+  }
+  @media screen and (max-width: 700px) {
+    padding: 2rem 1rem;
   }
 `;
 

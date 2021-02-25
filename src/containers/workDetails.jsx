@@ -1,9 +1,10 @@
-import {ViewLink, WorkDetails} from "../components";
+import { ViewLink, WorkDetails } from "../components";
 import { Layout } from "../components";
 import SocialContainer from "./social";
 import InspiredContainer from "./inspired";
 import FooterContainer from "./footer";
 import GithubContainer from "./github";
+// import Contributors from "./contributors";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getWorkDetails } from "../services/workServices";
@@ -12,6 +13,7 @@ import useProgressiveImg from "../hooks/useProgressiveImage";
 import ImageLoad from "../helpers/imageLoad";
 import FeedbackContainer from "./feedback";
 import { Helmet } from "react-helmet";
+import LogoLoaderContainer from "./logoLoader";
 
 //Assets
 import {AndroidSVG, IOSSVG, LinkSVG} from "./svgs";
@@ -19,7 +21,7 @@ import {AndroidSVG, IOSSVG, LinkSVG} from "./svgs";
 export default function WorkDetailsContainer () {
     const { id } = useParams();
     const currentLink = window.location.href;
-    const { data, isLoading, isError, error } = useQuery(['work-details', id], getWorkDetails);
+    const { data, isLoading, isError, error,  } = useQuery(['work-details', id], getWorkDetails);
     const lowImage = data&&data.cover_image.formats.thumbnail.url;
     const [src, { blur }] = useProgressiveImg(
         lowImage,
@@ -27,15 +29,21 @@ export default function WorkDetailsContainer () {
     );
 
     if(isLoading) {
-        return <div>Loading...</div>
+        return <LogoLoaderContainer zIndex={"995"} />
     }
 
     if(isError) {
-        // console.log(error.response)
-        // console.log(error.response.status)
-        // console.log(error.response.statusText)
-        return <p>Error: {error.message}</p>
+        if(error && error.response?.status === 500) {
+            //TODO: Add the page can't be found here or doesn't exist
+            return <p>Error: {error.response.status}</p>
+        }
+        if ( error && error.message === "Network Error" ) {
+            //TODO: Add server error UI here
+            return <p>Server Error</p>
+        }
     }
+
+    console.log(error)
 
     return (
         <>
@@ -97,15 +105,8 @@ export default function WorkDetailsContainer () {
                                 <WorkDetails.Link href={data.link}>{truncateString(data.link, 12)}</WorkDetails.Link>
                             </WorkDetails.InfoPane>
                         </WorkDetails.InfoPane>
-                        <WorkDetails.InfoPane className={"contributors"}>
-                            <WorkDetails.InfoText className={"header"}>contributors</WorkDetails.InfoText>
-                            <WorkDetails.ContributorsWrapper>
-                                <WorkDetails.Contributor />
-                                <WorkDetails.Contributor />
-                                <WorkDetails.Contributor />
-                                <WorkDetails.Contributor />
-                            </WorkDetails.ContributorsWrapper>
-                        </WorkDetails.InfoPane>
+                        {/*//TODO: Fix the contributors UI*/}
+                        {/*<Contributors />*/}
                     </WorkDetails.InfoWrapper>
                     <WorkDetails.InfoText className={"header"}>repo</WorkDetails.InfoText>
                     <GithubContainer href={data.github_link} />

@@ -8,6 +8,10 @@ export const ProjectWrapper = styled.main`
   margin-top: 5.5rem;
   display: grid;
   grid-row-gap: 7.5rem;
+  @media screen and (max-width: 540px) {
+    margin-top: 4rem;
+    grid-row-gap: 4rem;
+  }
 `;
 
 export const Project = styled.article`
@@ -42,9 +46,9 @@ export const ImageWrapper = styled.div`
   background: ${({ theme }) => theme.banner};
   border-radius: ${variables.bannerRadius};
   overflow: hidden;
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 540px) {
     height: 250px;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -88,8 +92,10 @@ export const ProjectName = styled.h5`
   font-size: 2rem;
   line-height: 2.312rem;
   margin-bottom: 2.5rem;
-  @media screen and (max-width: 680px) {
-    margin-bottom: 1rem;
+  @media screen and (max-width: 540px) {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    margin-bottom: 2rem;
   }
 `;
 

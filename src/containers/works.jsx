@@ -5,13 +5,10 @@ import SocialContainer from "./social";
 import InspiredContainer from "./inspired";
 import FooterContainer from "./footer";
 import WorkContentContainer from "./workContent";
-import { useQuery } from "react-query";
-import { getWorksLength } from "../services/workServices";
 import { Helmet } from "react-helmet";
+import CompletedProject from "./completedProject";
 
 export default function WorksContainer() {
-    const { data, isSuccess } = useQuery("work-length", getWorksLength);
-
     return (
         <>
             <Helmet>
@@ -32,12 +29,7 @@ export default function WorksContainer() {
                             </WorkIntro.GithubWrapper>
                         </WorkIntro.TextWrapper>
                         <div>
-                            <WorkIntro.Pane>
-                                {isSuccess && <WorkIntro.NumberText>{data}</WorkIntro.NumberText>}
-                                <WorkIntro.NumberParagraph>
-                                    Completed Projects
-                                </WorkIntro.NumberParagraph>
-                            </WorkIntro.Pane>
+                            <CompletedProject />
                         </div>
                     </WorkIntro>
                     <Layout.Pane>

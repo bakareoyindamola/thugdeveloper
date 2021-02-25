@@ -215,7 +215,6 @@ export const ContributorsWrapper = styled.div`
   @media screen and (max-width: 600px) {
     max-width: 272px;
     width: 100%;
-    //justify-content: flex-end;
   }
   @media screen and (max-width: 403px) {
     justify-content: flex-end;

@@ -6,12 +6,14 @@ import WorkSkeleton from "./workSkeleton";
 import ImageLoad from "../helpers/imageLoad";
 
 export default function WorkContentContainer() {
-    const { data, isLoading } = useQuery("works", getWorks);
+    const { data, isLoading, isError, error } = useQuery("works", getWorks);
     let num = 1;
 
     if (isLoading) {
         return <WorkSkeleton />
     }
+
+    console.log(isError, error)
 
     return (
         <WorkContent>

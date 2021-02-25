@@ -3,8 +3,10 @@ import { Social } from "../components";
 import { TwitterSVG, InstagramSVG } from "./svgs";
 import gsap from "gsap";
 import { useIntersection } from "react-use";
+import {useDimension} from "../hooks";
 
 export default function SocialContainer() {
+    const [width] = useDimension('width');
     let containerRef = createRef();
     const intersection = useIntersection(containerRef, {
         root: null,
@@ -33,7 +35,7 @@ export default function SocialContainer() {
     return(
         <Social ref={containerRef} className="social-card-animate">
             <Social.TextWrapper>
-                <Social.HeaderText className="social-card-content-animate">let's be social<span>.</span></Social.HeaderText>
+                <Social.HeaderText className="social-card-content-animate">let's get social<span>.</span></Social.HeaderText>
                 <Social.Paragraph className="social-card-content-animate">
                     I'm available for parties, available for jaiye, available for flexing.
                     Would you send me the location?
@@ -42,11 +44,11 @@ export default function SocialContainer() {
             <Social.Wrapper className="social-card-content-animate">
                 <Social.Pane href={'https://twitter.com/theonlybakare'} target={"_blank"} social={"twitter"}>
                     <Social.CardText>Twitter</Social.CardText>
-                    <TwitterSVG />
+                    {width >= 541 && <TwitterSVG />}
                 </Social.Pane>
                 <Social.Pane href={'https://www.instagram.com/thugdeveloper/'} target={"_blank"} social={"instagram"}>
                     <Social.CardText>Instagram</Social.CardText>
-                    <InstagramSVG />
+                    {width >= 541 && <InstagramSVG />}
                 </Social.Pane>
             </Social.Wrapper>
         </Social>

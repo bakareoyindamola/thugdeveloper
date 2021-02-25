@@ -116,6 +116,11 @@ export const Input = styled(Field)`
 export const ButtonWrapper = styled.div`
   max-width: 127px;
   margin-top: 1.5rem;
+  text-align: center;
+  .loader {
+    fill: ${({ theme }) => theme.text };
+    margin-left: 0;
+  }
 `;
 
 export const Footer = styled.footer`

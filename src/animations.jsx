@@ -1,6 +1,6 @@
 import gsap, { Power3 } from "gsap";
 
-let tl = new gsap.timeline();
+const tl = gsap.timeline();
 
 export const contactModalOpenAnimation = () => {
     tl.to(".contact_backdrop_animation", {
@@ -11,19 +11,20 @@ export const contactModalOpenAnimation = () => {
             {
                 opacity: 1,
                 right: 0,
-                duration: .5,
+                duration: .2,
                 ease: Power3.easeOut,
             })
         .from(".contact_modal_content_animation", {
-            duration: .5,
+            duration: .6,
             opacity: 0,
             y: 20,
-            ease: Power3.easeOut,
+            ease: Power3.easeInOut,
             stagger: {
-                amount: .5
+                amount: .2
             },
-        }, "<.3");
+        }, "<.1");
 };
+
 export const closeContactModal = async () => {
     tl.to(".contact_modal_wrapper_animation",
         {
@@ -75,7 +76,7 @@ export const openMobileNav = () => {
             opacity: 1,
             y: 0,
             stagger: {
-                amount: .3
+                amount: .2
             }
         })
         .to(".body_animation", {

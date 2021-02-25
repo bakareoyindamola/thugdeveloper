@@ -8,7 +8,7 @@ import { contactMe } from "../services/contactService";
 import { closeContactForm } from "../animations";
 
 //Assets
-import {CancelSVG, CheckOutSVG, InstagramIconSVG, TwitterIconSVG, GithubIconSVG} from "./svgs";
+import { CancelSVG, CheckOutSVG, InstagramIconSVG, TwitterIconSVG, GithubIconSVG, LoaderSVG } from "./svgs";
 import truncateString from "../helpers/truncateString";
 
 
@@ -157,7 +157,7 @@ export default function ContactModalContainer({ setContactModal }) {
                                                 disabled={!dirty || !isValid}
                                             >
                                                 {isSubmitting
-                                                    ? "Loading..."
+                                                    ? <LoaderSVG />
                                                     : <>Send <CheckOutSVG /></>
                                                 }
                                             </Button>

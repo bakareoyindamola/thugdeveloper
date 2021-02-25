@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 
 export const Container = styled.section`
   background: ${({ theme }) => theme.body};
-  padding-top: 8.4rem;
+  padding-top: 8.187rem;
   &.homepage {
     visibility: hidden;
   }
@@ -18,10 +18,16 @@ export const Inner = styled.main`
   @media screen and (max-width: 1050px) {
     padding: 0 2rem 0;
   }
+  @media screen and (max-width: 700px) {
+    padding: 0 1rem 0;
+  }
 `;
 
 export const Pane = styled.section`
   //padding-top: 9.2rem;
   display: grid;
   grid-row-gap: 7.5rem;
+  @media screen and (max-width: 540px) {
+    grid-row-gap: 4rem;
+  }
 `;
